@@ -8,13 +8,13 @@
 import Foundation
 import RealmSwift
 
+class Answer: Object, Codable {
+    @Persisted var answer: String
+    @Persisted var correct: Bool
+}
+
 class Question: Object, Codable {
-    @Persisted(primaryKey: true) var id: Int
     @Persisted var difficulty: Int
     @Persisted var question: String
-    @Persisted var answer1: String
-    @Persisted var answer2: String
-    @Persisted var answer3: String
-    @Persisted var answer4: String
-    @Persisted var correctAnswer: Int
+    @Persisted var answers: List<Answer>
 }

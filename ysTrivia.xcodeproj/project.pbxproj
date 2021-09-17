@@ -16,6 +16,7 @@
 		CAAB87FD26F4F9780013461A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CAAB87FC26F4F9780013461A /* Realm */; };
 		CAAB87FF26F4F9780013461A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAAB87FE26F4F9780013461A /* RealmSwift */; };
 		CAAB880126F4FCCB0013461A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB880026F4FCCB0013461A /* Question.swift */; };
+		CAAB880526F500370013461A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = CAAB880426F500370013461A /* SQLite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAAB880526F500370013461A /* SQLite in Frameworks */,
 				CAAB87FF26F4F9780013461A /* RealmSwift in Frameworks */,
 				CAAB87FD26F4F9780013461A /* Realm in Frameworks */,
 			);
@@ -109,6 +111,7 @@
 			packageProductDependencies = (
 				CAAB87FC26F4F9780013461A /* Realm */,
 				CAAB87FE26F4F9780013461A /* RealmSwift */,
+				CAAB880426F500370013461A /* SQLite */,
 			);
 			productName = ysTrivia;
 			productReference = CAAB87E326F4F5FD0013461A /* ysTrivia.app */;
@@ -139,6 +142,7 @@
 			mainGroup = CAAB87DA26F4F5FD0013461A;
 			packageReferences = (
 				CAAB87FB26F4F9780013461A /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				CAAB880326F500370013461A /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = CAAB87E426F4F5FD0013461A /* Products */;
 			projectDirPath = "";
@@ -382,6 +386,14 @@
 				minimumVersion = 10.15.1;
 			};
 		};
+		CAAB880326F500370013461A /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.13.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -394,6 +406,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CAAB87FB26F4F9780013461A /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
+		};
+		CAAB880426F500370013461A /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAAB880326F500370013461A /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
