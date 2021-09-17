@@ -16,6 +16,7 @@
 		CAAB87FD26F4F9780013461A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CAAB87FC26F4F9780013461A /* Realm */; };
 		CAAB87FF26F4F9780013461A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAAB87FE26F4F9780013461A /* RealmSwift */; };
 		CAAB880126F4FCCB0013461A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB880026F4FCCB0013461A /* Question.swift */; };
+		CAAB880726F5140A0013461A /* triviaDB.realm in Resources */ = {isa = PBXBuildFile; fileRef = CAAB880626F514090013461A /* triviaDB.realm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CAAB87F226F4F6020013461A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAAB87F426F4F6020013461A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAAB880026F4FCCB0013461A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		CAAB880626F514090013461A /* triviaDB.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = triviaDB.realm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				CAAB87E826F4F5FD0013461A /* SceneDelegate.swift */,
 				CAAB87EA26F4F5FD0013461A /* ViewController.swift */,
 				CAAB880226F4FF630013461A /* Models */,
+				CAAB880826F514140013461A /* Data */,
 				CAAB87FA26F4F6570013461A /* Resources */,
 			);
 			path = ysTrivia;
@@ -88,6 +91,14 @@
 				CAAB880026F4FCCB0013461A /* Question.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CAAB880826F514140013461A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CAAB880626F514090013461A /* triviaDB.realm */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +167,7 @@
 			files = (
 				CAAB87F326F4F6020013461A /* LaunchScreen.storyboard in Resources */,
 				CAAB87F026F4F6020013461A /* Assets.xcassets in Resources */,
+				CAAB880726F5140A0013461A /* triviaDB.realm in Resources */,
 				CAAB87EE26F4F5FD0013461A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
