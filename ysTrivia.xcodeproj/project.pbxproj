@@ -15,6 +15,7 @@
 		CAAB87F326F4F6020013461A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAAB87F126F4F6020013461A /* LaunchScreen.storyboard */; };
 		CAAB87FD26F4F9780013461A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CAAB87FC26F4F9780013461A /* Realm */; };
 		CAAB87FF26F4F9780013461A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAAB87FE26F4F9780013461A /* RealmSwift */; };
+		CAAB880126F4FCCB0013461A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB880026F4FCCB0013461A /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CAAB87EF26F4F6020013461A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAAB87F226F4F6020013461A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAAB87F426F4F6020013461A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAAB880026F4FCCB0013461A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				CAAB87E626F4F5FD0013461A /* AppDelegate.swift */,
 				CAAB87E826F4F5FD0013461A /* SceneDelegate.swift */,
 				CAAB87EA26F4F5FD0013461A /* ViewController.swift */,
+				CAAB880226F4FF630013461A /* Models */,
 				CAAB87FA26F4F6570013461A /* Resources */,
 			);
 			path = ysTrivia;
@@ -77,6 +80,14 @@
 				CAAB87F426F4F6020013461A /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CAAB880226F4FF630013461A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CAAB880026F4FCCB0013461A /* Question.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAAB87EB26F4F5FD0013461A /* ViewController.swift in Sources */,
+				CAAB880126F4FCCB0013461A /* Question.swift in Sources */,
 				CAAB87E726F4F5FD0013461A /* AppDelegate.swift in Sources */,
 				CAAB87E926F4F5FD0013461A /* SceneDelegate.swift in Sources */,
 			);
