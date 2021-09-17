@@ -15,10 +15,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let questions = realm.objects(Question.self).filter("question contains 'Что'")
+        let questions = realm.objects(Question.self).filter("question contains 'Зачем'")
         
         questions.forEach { question in
-            print(question.question)
+            
+            print("Q[\(question.difficulty)]: \(question.question)")
+            
+            question.answers.forEach { answer in
+                
+                print("A [\(answer.correct ? "+" : " ")]: \(answer.answer)")
+            }
         }
 
         
