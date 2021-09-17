@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+            let url = URL(string: "/Users/jareksedy/Downloads/triviaDB.realm")
+        
+        try! realm.writeCopy(toFile: url!)
+        
     }
     
 }
