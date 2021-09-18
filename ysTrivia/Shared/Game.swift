@@ -29,7 +29,8 @@ final class Game {
         12: 400_000,
         13: 800_000,
         14: 1_500_000,
-        15: 3_000_000]
+        15: 3_000_000,
+    ]
     
     var gameSession: GameSession?
 }
