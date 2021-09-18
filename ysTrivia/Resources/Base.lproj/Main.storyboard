@@ -226,6 +226,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ckS-1f-5p1"/>
+                    <connections>
+                        <outlet property="answerButtonA" destination="ev0-dW-yj6" id="DTN-0H-8Zz"/>
+                        <outlet property="answerButtonB" destination="HbB-4B-pGE" id="4bM-pc-ZBr"/>
+                        <outlet property="answerButtonC" destination="EyW-F9-Wv9" id="UKg-Ma-nBT"/>
+                        <outlet property="answerButtonD" destination="jb1-LO-cZH" id="dtD-a6-QuQ"/>
+                        <outlet property="currentQuestionLabel" destination="PEa-SW-eA5" id="fav-Vd-NPo"/>
+                        <outlet property="currentQuestionNoLabel" destination="JIR-K6-OKl" id="GzF-rs-6oQ"/>
+                        <outlet property="currentQuestionValueLabel" destination="1M1-wd-5cO" id="VHU-Zm-Dvv"/>
+                        <outlet property="endGameButton" destination="uLV-Jo-DiZ" id="gq7-aX-6vy"/>
+                        <outlet property="lifelineAskAudienceButton" destination="cAg-8f-k3L" id="KlR-iz-hfT"/>
+                        <outlet property="lifelineFiftyButton" destination="2jo-k4-sH7" id="E7j-jb-7Bx"/>
+                        <outlet property="lifelinePhoneButton" destination="R55-77-nxY" id="0Fr-eL-EM7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTB-hk-pbF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
