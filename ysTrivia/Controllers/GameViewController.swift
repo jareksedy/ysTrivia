@@ -8,6 +8,8 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    
+    // MARK: - Outlets.
 
     @IBOutlet weak var currentQuestionNoLabel: UILabel!
     @IBOutlet weak var currentQuestionValueLabel: UILabel!
@@ -24,10 +26,47 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var endGameButton: UIButton!
     
+    // MARK: - Instances.
+    
+    let game = Game.shared
+    let gameSession = GameSession()
+    let questionProvider = QuestionProvider()
+    
+    // MARK: - Private methods.
+    
+    private func resetGameSession() {
+        
+        gameSession.currentQuestionNo = 1
+        gameSession.isLifelineFiftyUsed = false
+        gameSession.isLifelinePhoneUsed = false
+        gameSession.isLifelineAskAudienceUsed = false
+    }
+    
+    private func setupView() {
+        
+        guard let question = questionProvider.fetchRandom(for: gameSession.currentQuestionNo) else { return }
+        guard let questionValue = game.questionValues[gameSession.currentQuestionNo] else { return }
+        
+        currentQuestionNoLabel.text = "ВОПРОС [ \(gameSession.currentQuestionNo) / \(game.questionsCount) ]"
+        currentQuestionValueLabel.text = "\(questionValue) ₽"
+        
+        currentQuestionLabel.text = question.text
+        
+        answerButtonA.setTitle(question.answers[0].text, for: .normal)
+        answerButtonB.setTitle(question.answers[1].text, for: .normal)
+        answerButtonC.setTitle(question.answers[2].text, for: .normal)
+        answerButtonD.setTitle(question.answers[3].text, for: .normal)
+        
+    }
+    
+    // MARK: - View controller methods.
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        resetGameSession()
+        setupView()
+        
     }
 }

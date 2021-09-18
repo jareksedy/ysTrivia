@@ -32,5 +32,7 @@ final class Game {
         15: 3_000_000,
     ]
     
+    let questionsCount = 15
+    
     var gameSession: GameSession?
 }
