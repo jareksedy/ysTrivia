@@ -10,23 +10,30 @@ import RealmSwift
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var tapMeButton: UIButton!
+    
     let questionProvider = QuestionProvider()
+    
+    @IBAction func tapMeButtonTap(_ sender: Any) {
+        
+        let difficulty = 14
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        guard let question = questionProvider.fetchRandom(for: 5) else { return }
-        
-        print("Q: \(question.question)")
-        print("D: \(question.difficulty)")
+        guard let question = questionProvider.fetchRandom(for: difficulty) else { return }
+        guard let count = questionProvider.numberOfQuestions(for: difficulty) else { return }
+
+        print("Q: \(question.text)")
+        print("D: \(question.difficulty). COUNT: \(count)")
         print()
-        
+
         question.answers.forEach { answer in
-            print("A[\(answer.correct ? "+" : "-")]: \(answer.answer)")
+            print("A[\(answer.correct ? "+" : "-")]: \(answer.text)")
         }
-        
+
         print()
     }
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
 

@@ -19,4 +19,9 @@ class QuestionProvider {
         let questions = realm.objects(Question.self).filter("difficulty == \(difficulty)")
         return questions.count > 0 ? questions[Int.random(in: 0...questions.count)] : nil
     }
+    
+    func numberOfQuestions(for difficulty: Int) -> Int? {
+        
+        return realm.objects(Question.self).filter("difficulty == \(difficulty)").count
+    }
 }
