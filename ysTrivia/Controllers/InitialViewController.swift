@@ -11,11 +11,11 @@ class InitialViewController: UIViewController {
     
     @IBOutlet weak var versionLabel: UILabel!
     
+    let game = Game.shared
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
-        let game = Game.shared
         versionLabel.text = "Верс. \(game.version)"
     }
 
