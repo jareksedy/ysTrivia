@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eXf-xL-cz5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -8,37 +8,58 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Initial View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ysTrivia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="InitialViewController" customModule="ysTrivia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhW-aH-1Zs">
-                                <rect key="frame" x="88" y="399" width="238" height="98"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                <state key="normal" title="Tap me!"/>
-                                <connections>
-                                    <action selector="tapMeButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qSJ-Xz-N7T"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="dhW-aH-1Zs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IOf-Do-duf"/>
-                            <constraint firstItem="dhW-aH-1Zs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NZG-uq-eGL"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JE6-5T-Rxi"/>
                     <connections>
-                        <outlet property="tapMeButton" destination="dhW-aH-1Zs" id="ye1-31-LXJ"/>
+                        <segue destination="2Py-rx-TIY" kind="show" identifier="toGameVC" id="w0z-8E-gSY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129" y="88"/>
+            <point key="canvasLocation" x="965" y="88"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="ryw-KD-HlP">
+            <objects>
+                <viewController id="2Py-rx-TIY" customClass="GameViewController" customModule="ysTrivia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qjz-YM-65m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aWF-ow-gj5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ckS-1f-5p1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZTB-hk-pbF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1804" y="88"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="x88-0o-mAH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eXf-xL-cz5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Ur-OR-4wT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Dpm-Of-jaH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Myy-bE-BEr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.98550724637681" y="87.723214285714278"/>
         </scene>
     </scenes>
     <resources>
