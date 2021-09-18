@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CA4BB72126F58529007A0695 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BB72026F58529007A0695 /* Game.swift */; };
 		CA4BB72426F58B20007A0695 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BB72326F58B20007A0695 /* GameSession.swift */; };
+		CA4BB72626F5907D007A0695 /* QuestionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BB72526F5907D007A0695 /* QuestionProvider.swift */; };
 		CAAB87E726F4F5FD0013461A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB87E626F4F5FD0013461A /* AppDelegate.swift */; };
 		CAAB87E926F4F5FD0013461A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB87E826F4F5FD0013461A /* SceneDelegate.swift */; };
 		CAAB87EB26F4F5FD0013461A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB87EA26F4F5FD0013461A /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		CA4BB72026F58529007A0695 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		CA4BB72326F58B20007A0695 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
+		CA4BB72526F5907D007A0695 /* QuestionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionProvider.swift; sourceTree = "<group>"; };
 		CAAB87E326F4F5FD0013461A /* ysTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ysTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAAB87E626F4F5FD0013461A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAAB87E826F4F5FD0013461A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,9 +55,16 @@
 			isa = PBXGroup;
 			children = (
 				CA4BB72026F58529007A0695 /* Game.swift */,
-				CA4BB72326F58B20007A0695 /* GameSession.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		CA4BB72726F59084007A0695 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CA4BB72526F5907D007A0695 /* QuestionProvider.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		CAAB87DA26F4F5FD0013461A = {
@@ -80,9 +89,10 @@
 				CAAB87E626F4F5FD0013461A /* AppDelegate.swift */,
 				CAAB87E826F4F5FD0013461A /* SceneDelegate.swift */,
 				CAAB87EA26F4F5FD0013461A /* ViewController.swift */,
-				CA4BB72226F58538007A0695 /* Shared */,
+				CA4BB72726F59084007A0695 /* Services */,
 				CAAB880226F4FF630013461A /* Models */,
 				CAAB880826F514140013461A /* Data */,
+				CA4BB72226F58538007A0695 /* Shared */,
 				CAAB87FA26F4F6570013461A /* Resources */,
 			);
 			path = ysTrivia;
@@ -102,6 +112,7 @@
 		CAAB880226F4FF630013461A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CA4BB72326F58B20007A0695 /* GameSession.swift */,
 				CAAB880026F4FCCB0013461A /* Question.swift */,
 			);
 			path = Models;
@@ -197,6 +208,7 @@
 				CA4BB72126F58529007A0695 /* Game.swift in Sources */,
 				CAAB880126F4FCCB0013461A /* Question.swift in Sources */,
 				CAAB87E726F4F5FD0013461A /* AppDelegate.swift in Sources */,
+				CA4BB72626F5907D007A0695 /* QuestionProvider.swift in Sources */,
 				CA4BB72426F58B20007A0695 /* GameSession.swift in Sources */,
 				CAAB87E926F4F5FD0013461A /* SceneDelegate.swift in Sources */,
 			);

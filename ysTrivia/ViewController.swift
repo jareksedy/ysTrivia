@@ -10,10 +10,22 @@ import RealmSwift
 
 class ViewController: UIViewController {
     
-    //let realm = try! Realm(configuration: Realm.Configuration(fileURL: Bundle.main.url(forResource: "triviaDB", withExtension: "realm"), readOnly: true))
-    
+    let questionProvider = QuestionProvider()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let question = questionProvider.fetchRandom(for: 5) else { return }
+        
+        print("Q: \(question.question)")
+        print("D: \(question.difficulty)")
+        print()
+        
+        question.answers.forEach { answer in
+            print("A[\(answer.correct ? "+" : "-")]: \(answer.answer)")
+        }
+        
+        print()
     }
 
 }

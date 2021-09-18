@@ -1,0 +1,22 @@
+//
+//  QuestionProvider.swift
+//  ysTrivia
+//
+//  Created by Ярослав on 18.09.2021.
+//
+
+import Foundation
+import RealmSwift
+
+class QuestionProvider {
+    
+    lazy var dbUrl = Bundle.main.url(forResource: "triviaDB", withExtension: "realm")
+    lazy var configuration = Realm.Configuration(fileURL: dbUrl, readOnly: true)
+    lazy var realm = try! Realm(configuration: configuration)
+    
+    func fetchRandom(for difficulty: Int) -> Question? {
+        
+        let questions = realm.objects(Question.self).filter("difficulty == \(difficulty)")
+        return questions.count > 0 ? questions[Int.random(in: 0...questions.count)] : nil
+    }
+}
