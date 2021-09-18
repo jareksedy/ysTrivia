@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA4BB72126F58529007A0695 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BB72026F58529007A0695 /* Game.swift */; };
+		CA4BB72426F58B20007A0695 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BB72326F58B20007A0695 /* GameSession.swift */; };
 		CAAB87E726F4F5FD0013461A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB87E626F4F5FD0013461A /* AppDelegate.swift */; };
 		CAAB87E926F4F5FD0013461A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB87E826F4F5FD0013461A /* SceneDelegate.swift */; };
 		CAAB87EB26F4F5FD0013461A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB87EA26F4F5FD0013461A /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA4BB72026F58529007A0695 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		CA4BB72326F58B20007A0695 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		CAAB87E326F4F5FD0013461A /* ysTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ysTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAAB87E626F4F5FD0013461A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAAB87E826F4F5FD0013461A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA4BB72226F58538007A0695 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CA4BB72026F58529007A0695 /* Game.swift */,
+				CA4BB72326F58B20007A0695 /* GameSession.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		CAAB87DA26F4F5FD0013461A = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +80,7 @@
 				CAAB87E626F4F5FD0013461A /* AppDelegate.swift */,
 				CAAB87E826F4F5FD0013461A /* SceneDelegate.swift */,
 				CAAB87EA26F4F5FD0013461A /* ViewController.swift */,
+				CA4BB72226F58538007A0695 /* Shared */,
 				CAAB880226F4FF630013461A /* Models */,
 				CAAB880826F514140013461A /* Data */,
 				CAAB87FA26F4F6570013461A /* Resources */,
@@ -180,8 +194,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAAB87EB26F4F5FD0013461A /* ViewController.swift in Sources */,
+				CA4BB72126F58529007A0695 /* Game.swift in Sources */,
 				CAAB880126F4FCCB0013461A /* Question.swift in Sources */,
 				CAAB87E726F4F5FD0013461A /* AppDelegate.swift in Sources */,
+				CA4BB72426F58B20007A0695 /* GameSession.swift in Sources */,
 				CAAB87E926F4F5FD0013461A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
