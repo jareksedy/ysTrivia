@@ -48,7 +48,7 @@ class GameViewController: UIViewController {
         guard let questionValue = game.questionValues[gameSession.currentQuestionNo] else { return }
         
         currentQuestionNoLabel.text = "ВОПРОС [ \(gameSession.currentQuestionNo) / \(game.questionsCount) ]"
-        currentQuestionValueLabel.text = "\(questionValue) ₽"
+        currentQuestionValueLabel.text = "\(questionValue.formatted) ₽"
         
         currentQuestionLabel.text = question.text
         
