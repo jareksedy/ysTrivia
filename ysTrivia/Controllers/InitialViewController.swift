@@ -8,11 +8,15 @@
 import UIKit
 
 class InitialViewController: UIViewController {
-
+    
+    @IBOutlet weak var versionLabel: UILabel!
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let game = Game.shared
+        versionLabel.text = "Верс. \(game.version)"
     }
 
 }
