@@ -42,7 +42,7 @@ class GameViewController: UIViewController {
         gameSession.isLifelineAskAudienceUsed = false
     }
     
-    private func setupView() {
+    private func displayQuestion() {
         
         guard let question = questionProvider.fetchRandom(for: gameSession.currentQuestionNo) else { return }
         guard let questionValue = game.questionValues[gameSession.currentQuestionNo] else { return }
@@ -59,6 +59,14 @@ class GameViewController: UIViewController {
         
     }
     
+    // MARK: - Actions.
+    
+    @IBAction func endGameAction(_ sender: Any) {
+        
+        gameSession.currentQuestionNo < game.questionsCount ? gameSession.currentQuestionNo += 1 : resetGameSession()
+        displayQuestion()
+    }
+    
     // MARK: - View controller methods.
     
     override func viewDidLoad() {
@@ -66,7 +74,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         resetGameSession()
-        setupView()
+        displayQuestion()
         
     }
 }
