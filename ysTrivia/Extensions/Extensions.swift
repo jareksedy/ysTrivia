@@ -89,6 +89,16 @@ extension UIViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func displayYesNoAlert(withAlertTitle alertTitle: String, andMessage message: String, _ completion: ((UIAlertAction)->Void)? = nil) {
+        
+        let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Да!", style: .default, handler: completion)
+        let noAction = UIAlertAction(title: "Нет!", style: .cancel, handler: nil)
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Delay function.

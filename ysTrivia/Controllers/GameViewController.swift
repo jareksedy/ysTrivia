@@ -44,11 +44,26 @@ class GameViewController: UIViewController {
     let friendTitle = "🤷🏻‍♂️ Звонок другу 🤷🏻‍♂️"
     let friendMessage = "Извини, приятель, точно не знаю, но больше склоняюсь к варианту "
     
+    let endGameTitle = "🤔 Завершить игру? 🤔"
+    lazy var endGameMessage = """
+        Вы уверены что хотите завершить игру
+        и забрать ваш выигрыш
+        \(gameSession.earnedMoney.formatted) ₽?
+        Вы хорошо подумали?
+        """
+    
     let gameOverTitle = "👾 Пипец! 👾"
     lazy var gameOverMessage = """
         Сожалею, ответ неверный!
-        Ваш выигрыш \(gameSession.earnedMoneyGuaranteed > 0 ? "в размере несгораемого остатка равен \(gameSession.earnedMoneyGuaranteed.formatted) ₽." : "равен нулю.")
+        Ваш выигрыш \(gameSession.earnedMoneyGuaranteed > 0 ? "в размере несгораемого остатка равен \("\n" + gameSession.earnedMoneyGuaranteed.formatted) ₽." : "равен нулю.")
         Игра окончена.
+        """
+    
+    let winTitle = "🙌🏼 Вы выиграли 🙌🏼"
+    let winMessage = """
+        Поздравляю! Это почти невозможно, но вы выиграли три миллиона рублей!
+        Признайтесь честно, жульничали? Гуглили ответы?
+        Ладно, так уж и быть, забирайте свой выигрыш.
         """
     
     // MARK: - Private methods.
@@ -177,7 +192,7 @@ class GameViewController: UIViewController {
                         nextQuestion()
                     } else {
                         // ИГРА ОКОНЧЕНА. ИГРОК ВЫИГРАЛ МАКСИМАЛЬНУЮ СУММУ.
-                        
+                        win(answerIndex)
                     }
                 }
             } else {
@@ -254,6 +269,10 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func endGameAction(_ sender: Any) {
+        displayYesNoAlert(withAlertTitle: endGameTitle,
+                          andMessage: endGameMessage) { _ in
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     // MARK: - Game lifecycle methods.
@@ -272,6 +291,18 @@ class GameViewController: UIViewController {
         
         delay { [self] in
             displayAlert(withAlertTitle: gameOverTitle, andMessage: gameOverMessage) { _ in 
+                _ = navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    }
+    
+    func win(_ answerIndex: Int) {
+        
+        answerButtons[answerIndex]?.backgroundColor = .correct
+        answerButtons[gameSession.currentQuestion!.correctIndex]?.alpha = 1.0
+        
+        delay { [self] in
+            displayAlert(withAlertTitle: winTitle, andMessage: winMessage) { _ in
                 _ = navigationController?.popToRootViewController(animated: true)
             }
         }
