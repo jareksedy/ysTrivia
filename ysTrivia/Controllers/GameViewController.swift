@@ -47,8 +47,7 @@ class GameViewController: UIViewController {
     let gameOverTitle = "👾 Пипец! 👾"
     lazy var gameOverMessage = """
         Сожалею, ответ неверный!
-        Ваш выигрыш в размере несгораемого остатка равен
-        \(gameSession.earnedMoneyGuaranteed.formatted) ₽.
+        Ваш выигрыш \(gameSession.earnedMoneyGuaranteed > 0 ? "в размере несгораемого остатка равен \(gameSession.earnedMoneyGuaranteed.formatted) ₽." : "равен нулю.")
         Игра окончена.
         """
     
