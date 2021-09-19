@@ -14,6 +14,7 @@ class InitialViewController: UIViewController {
     
     let game = Game.shared
     let statsService = StatsService()
+    let gameSessionCaretaker = GameSessionCaretaker()
     
     override func viewDidLoad() {
         
@@ -68,6 +69,8 @@ extension InitialViewController: GameViewControllerDelegate {
         
         statsService.add(data)
         game.gameSession = nil
+        
+        do { try gameSessionCaretaker.destroy() } catch { print(error) }
         
         resultLabel.text = data.text.uppercased()
     }

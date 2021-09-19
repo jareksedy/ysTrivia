@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 // MARK: - Форматирование целого числа с разбивкой по разрядам в соотв. с русской локалью.
 
@@ -131,7 +132,7 @@ extension GameStats {
         Дата: \(self.gameDate ?? "-")
         Статус: \(self.gameStatus ?? "неизвестен.")
         
-        Заработано: \(self.moneyWon) ₽.
+        Заработано: \(self.moneyWon.formatted) ₽.
         Правильные ответы: \(self.correctAnswerCount) из 15, \(self.percentage)%.
         
         🧿 Подсказки 🧿

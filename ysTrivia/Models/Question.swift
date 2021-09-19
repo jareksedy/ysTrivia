@@ -8,13 +8,13 @@
 import Foundation
 import RealmSwift
 
-class Answer: Object, Codable {
+class Answer: Object {
     
     @Persisted var text: String
     @Persisted var correct: Bool
 }
 
-class Question: Object, Codable {
+class Question: Object {
     
     @Persisted var difficulty: Int
     @Persisted var text: String

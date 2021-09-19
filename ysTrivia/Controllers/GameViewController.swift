@@ -43,6 +43,7 @@ class GameViewController: UIViewController {
     let game = Game.shared
     let gameSession = GameSession()
     let questionProvider = QuestionProvider()
+    let gameSessionCaretaker = GameSessionCaretaker()
     
     // MARK: - Messages.
     
@@ -122,6 +123,7 @@ class GameViewController: UIViewController {
         }
         
         gameSession.currentQuestion = question
+        gameSessionCaretaker.save(gameSession)
     }
     
     private func disableButtons(_ answerIndex: Int) {
