@@ -43,6 +43,7 @@ extension UIColor {
     static var answered: UIColor { return .systemOrange }
     static var correct: UIColor { return .systemGreen }
     static var incorrect: UIColor { return .systemPink }
+    static var disabled: UIColor { return .systemGray3 }
 }
 
 // MARK: - Delay function.
@@ -52,4 +53,17 @@ func delay(closure: @escaping ()->()) {
     let game = Game.shared
     let when = DispatchTime.now() + game.delayInterval
     DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
+}
+
+// MARK: - Alert extensions.
+
+extension UIViewController {
+    
+    func displayAlert(withAlertTitle alertTitle: String, andMessage message: String, _ completion: @escaping (UIAlertAction)->()) {
+        
+        let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Окей", style: .default, handler: completion)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 }

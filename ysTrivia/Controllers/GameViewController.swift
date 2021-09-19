@@ -36,6 +36,11 @@ class GameViewController: UIViewController {
     let gameSession = GameSession()
     let questionProvider = QuestionProvider()
     
+    // MARK: - Messages.
+    
+    let gameOverTitle = "👾 Пипец! 👾"
+    let gameOverMessage = "Сожалею, ответ неверный! Игра окончена."
+    
     // MARK: - Private methods.
     
     private func addButtonActions() {
@@ -68,16 +73,19 @@ class GameViewController: UIViewController {
         for (index, answer) in question.answers.enumerated() {
             answerButtons[index]?.setTitle(answer.text, for: .normal)
             answerButtons[index]?.backgroundColor = .unanswered
+            answerButtons[index]?.alpha = 1.0
             answerButtons[index]?.isEnabled = true
         }
         
         gameSession.currentQuestion = question
     }
     
-    private func disableButtons() {
+    private func disableButtons(_ answerIndex: Int) {
+        
         
         for button in answerButtons {
             button?.isEnabled = false
+            button?.alpha = button?.tag != answerIndex ? 0.75 : 1.0
         }
     }
     
@@ -92,26 +100,26 @@ class GameViewController: UIViewController {
         
         let answerIndex = sender.tag
         
+        disableButtons(answerIndex)
         answerButtons[answerIndex]?.backgroundColor = .answered
-        disableButtons()
         
         delay { [self] in
             
-            if isCorrect(answerIndex) { // Ответ верный, идем дальше.
-                
+            if isCorrect(answerIndex) {
+                // ОТВЕТ ВЕРНЫЙ. ИДЕМ ДАЛЬШЕ.
                 answerButtons[answerIndex]?.backgroundColor = .correct
                 
                 delay {
-                    
                     if gameSession.currentQuestionNo < game.questionsTotal {
-                        gameSession.currentQuestionNo += 1
-                        displayQuestion()
+                        nextQuestion()
+                    } else {
+                        // ИГРА ОКОНЧЕНА. ИГРОК ВЫИГРАЛ МАКСИМАЛЬНУЮ СУММУ.
+                        
                     }
                 }
-                
-            } else { // Ответ неверный, завершаем игру.
-                answerButtons[answerIndex]?.backgroundColor = .incorrect
-                answerButtons[gameSession.currentQuestion!.correctIndex]?.backgroundColor = .correct
+            } else {
+                // ОТВЕТ НЕВЕРНЫЙ. ЗАВЕРШАЕМ ИГРУ.
+                gameOver(answerIndex)
             }
         }
     }
@@ -120,6 +128,27 @@ class GameViewController: UIViewController {
         
         gameSession.currentQuestionNo < game.questionsTotal ? gameSession.currentQuestionNo += 1 : resetGameSession()
         displayQuestion()
+    }
+    
+    // MARK: - Game lifecycle methods.
+    
+    func nextQuestion() {
+        
+        gameSession.currentQuestionNo += 1
+        displayQuestion()
+    }
+    
+    func gameOver(_ answerIndex: Int) {
+        
+        answerButtons[answerIndex]?.backgroundColor = .incorrect
+        answerButtons[gameSession.currentQuestion!.correctIndex]?.backgroundColor = .correct
+        answerButtons[gameSession.currentQuestion!.correctIndex]?.alpha = 1.0
+        
+        delay { [self] in
+            displayAlert(withAlertTitle: gameOverTitle, andMessage: gameOverMessage) { _ in 
+                _ = navigationController?.popToRootViewController(animated: true)
+            }
+        }
     }
     
     // MARK: - View controller methods.
