@@ -14,7 +14,7 @@ final class Game {
     
     let version = "1.0.0"
     
-    let questionValues = [
+    let payout = [
         1: 500,
         2: 1_000,
         3: 2_000,
@@ -32,7 +32,7 @@ final class Game {
         15: 3_000_000,
     ]
     
-    let questionsCount = 15
+    let questionsTotal = 15
     
     var gameSession: GameSession?
 }

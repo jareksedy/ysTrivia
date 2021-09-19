@@ -44,10 +44,12 @@ class GameViewController: UIViewController {
     
     private func displayQuestion() {
         
-        guard let question = questionProvider.fetchRandom(for: gameSession.currentQuestionNo) else { return }
-        guard let questionValue = game.questionValues[gameSession.currentQuestionNo] else { return }
+        let difficultyIndex = gameSession.currentQuestionNo
         
-        currentQuestionNoLabel.text = "ВОПРОС [ \(gameSession.currentQuestionNo) / \(game.questionsCount) ]"
+        guard let question = questionProvider.fetchRandom(for: difficultyIndex) else { return }
+        guard let questionValue = game.payout[difficultyIndex] else { return }
+        
+        currentQuestionNoLabel.text = "ВОПРОС [ \(difficultyIndex) / \(game.questionsTotal) ]"
         currentQuestionValueLabel.text = "\(questionValue.formatted) ₽"
         
         currentQuestionLabel.text = question.text
@@ -63,7 +65,7 @@ class GameViewController: UIViewController {
     
     @IBAction func endGameAction(_ sender: Any) {
         
-        gameSession.currentQuestionNo < game.questionsCount ? gameSession.currentQuestionNo += 1 : resetGameSession()
+        gameSession.currentQuestionNo < game.questionsTotal ? gameSession.currentQuestionNo += 1 : resetGameSession()
         displayQuestion()
     }
     
