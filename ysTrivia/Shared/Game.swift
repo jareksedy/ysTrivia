@@ -43,4 +43,20 @@ final class Game {
     let delayInterval: TimeInterval = 1.0
     
     var gameSession: GameSession?
+    
+    var percentage: Int {
+        
+        var current = self.gameSession?.currentQuestionNo ?? 0
+        if current > 0 { current -= 1}
+        
+        return current * 100 / questionsTotal
+    }
+    
+    var currentQuestion: String {
+        return self.gameSession?.currentQuestion?.text ?? ""
+    }
+    
+    var correctAnswer: String {
+        return self.gameSession?.currentQuestion?.answers[self.gameSession?.currentQuestion?.correctIndex ?? 0].text ?? ""
+    }
 }

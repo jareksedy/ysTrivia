@@ -57,14 +57,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Результат последней игры" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeM-ox-IET">
+                                <rect key="frame" x="25" y="430" width="364" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uZs-8F-fzo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="2h8-eh-Q1e"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p7d-tb-gCo" secondAttribute="trailing" constant="25" id="KZe-Rt-k0k"/>
+                            <constraint firstItem="OeM-ox-IET" firstAttribute="top" secondItem="p7d-tb-gCo" secondAttribute="bottom" constant="25" id="Kqk-xF-4uM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uZs-8F-fzo" secondAttribute="trailing" constant="25" id="MS6-cq-qwh"/>
                             <constraint firstItem="Wrf-zq-9DL" firstAttribute="top" secondItem="uZs-8F-fzo" secondAttribute="bottom" constant="25" id="SpI-3u-6lu"/>
+                            <constraint firstItem="OeM-ox-IET" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="T9r-Rh-KgR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="htj-FZ-BiD" secondAttribute="bottom" constant="25" id="Ygd-Iv-YpJ"/>
                             <constraint firstItem="uZs-8F-fzo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="cz8-sq-Q6l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="htj-FZ-BiD" secondAttribute="trailing" constant="25" id="dW5-Sg-aC9"/>
@@ -72,11 +80,13 @@
                             <constraint firstItem="p7d-tb-gCo" firstAttribute="top" secondItem="Wrf-zq-9DL" secondAttribute="bottom" constant="25" id="ecw-6b-0Yc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wrf-zq-9DL" secondAttribute="trailing" constant="25" id="gIW-3l-eGB"/>
                             <constraint firstItem="Wrf-zq-9DL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="jPs-c2-3cN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OeM-ox-IET" secondAttribute="trailing" constant="25" id="lQM-yd-6hU"/>
                             <constraint firstItem="p7d-tb-gCo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="uth-c8-AWd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JE6-5T-Rxi"/>
                     <connections>
+                        <outlet property="resultLabel" destination="OeM-ox-IET" id="vH1-dd-bVU"/>
                         <outlet property="versionLabel" destination="htj-FZ-BiD" id="nph-M6-T7x"/>
                     </connections>
                 </viewController>

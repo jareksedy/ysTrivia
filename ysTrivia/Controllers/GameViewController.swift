@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol GameViewControllerDelegate: AnyObject {
+    func didEndGame(withResult result: GameSession)
+}
+
 class GameViewController: UIViewController {
+    
+    // MARK: - Delegates.
+    
+    weak var gameDelegate: GameViewControllerDelegate?
     
     // MARK: - Outlets.
     
@@ -67,6 +75,11 @@ class GameViewController: UIViewController {
         """
     
     // MARK: - Private methods.
+    
+    private func endGame(_ session: GameSession) {
+        gameDelegate?.didEndGame(withResult: session)
+        _ = self.navigationController?.popToRootViewController(animated: true)
+    }
     
     private func addButtonActions() {
         
@@ -272,7 +285,7 @@ class GameViewController: UIViewController {
     @IBAction func endGameAction(_ sender: Any) {
         displayYesNoAlert(withAlertTitle: endGameTitle,
                           andMessage: endGameMessage) { _ in
-            _ = self.navigationController?.popToRootViewController(animated: true)
+            self.endGame(self.gameSession)
         }
     }
     
@@ -291,8 +304,8 @@ class GameViewController: UIViewController {
         answerButtons[gameSession.currentQuestion!.correctIndex]?.alpha = 1.0
         
         delay { [self] in
-            displayAlert(withAlertTitle: gameOverTitle, andMessage: gameOverMessage) { _ in 
-                _ = navigationController?.popToRootViewController(animated: true)
+            displayAlert(withAlertTitle: gameOverTitle, andMessage: gameOverMessage) { _ in
+                self.endGame(self.gameSession)
             }
         }
     }
@@ -304,7 +317,7 @@ class GameViewController: UIViewController {
         
         delay { [self] in
             displayAlert(withAlertTitle: winTitle, andMessage: winMessage) { _ in
-                _ = navigationController?.popToRootViewController(animated: true)
+                self.endGame(self.gameSession)
             }
         }
     }
@@ -314,7 +327,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         navigationController?.isNavigationBarHidden = true
         
         resetGameSession()
