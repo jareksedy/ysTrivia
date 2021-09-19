@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class InitialViewController: UIViewController {
     
@@ -16,6 +17,9 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        navigationController?.isNavigationBarHidden = true
+        
         versionLabel.text = "Верс. \(game.version)"
     }
 

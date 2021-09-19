@@ -98,6 +98,7 @@ class GameViewController: UIViewController {
         currentQuestionLabel.text = question.text
         
         for (index, answer) in question.answers.enumerated() {
+            
             answerButtons[index]?.setTitle(answer.text, for: .normal)
             answerButtons[index]?.backgroundColor = .unanswered
             answerButtons[index]?.alpha = 1.0
@@ -313,6 +314,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        navigationController?.isNavigationBarHidden = true
         
         resetGameSession()
         addButtonActions()
