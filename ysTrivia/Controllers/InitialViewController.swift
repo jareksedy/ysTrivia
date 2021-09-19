@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class InitialViewController: UIViewController {
     
@@ -14,6 +13,7 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     
     let game = Game.shared
+    let statsService = StatsService()
     
     override func viewDidLoad() {
         
@@ -39,6 +39,28 @@ extension InitialViewController: GameViewControllerDelegate {
         
         game.gameSession = result
         
+        let data = GameStats()
+        
+        data.correctAnswerCount = game.current
+        data.percentage = game.percentage
+        
+        data.isLifelineFiftyUsed = game.gameSession?.isLifelineFiftyUsed ?? false
+        data.isLifelineAskAudienceUsed = game.gameSession?.isLifelineAskAudienceUsed ?? false
+        data.isLifelinePhoneUsed = game.gameSession?.isLifelinePhoneUsed ?? false
+        
+        data.moneyWon = game.moneyWon
+        
+        if game.gameSession?.gameStatus == .lost {
+            
+            data.fatalQuestion = game.gameSession?.currentQuestion?.text
+            data.correctAnswer = game.gameSession?.currentQuestion?.answers[game.gameSession?.currentQuestion?.correctIndex ?? 0].text
+        }
+        
+        data.gameStatus = game.gameStatus
+        data.gameDate = String(describing: NSDate.now)
+        
+        statsService.add(data)
+        
         resultLabel.text = """
         🎮 РЕЗУЛЬТАТ 🧩 ПОСЛЕДНЕЙ ИГРЫ 🏆
         Статус игры: \(game.gameStatus)
@@ -50,7 +72,7 @@ extension InitialViewController: GameViewControllerDelegate {
         Помощь зала: \(game.gameSession?.isLifelineAskAudienceUsed ?? false ? "Да" : "Нет")
         Звонок другу: \(game.gameSession?.isLifelinePhoneUsed ?? false ? "Да" : "Нет")
         
-        Результат 💾 сохранен.
+        Результат 🗃️ сохранен.
         Сыграем ⚽ еще?
         """
         

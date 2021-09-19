@@ -11,7 +11,7 @@ import RealmSwift
 class QuestionProvider {
     
     lazy var dbUrl = Bundle.main.url(forResource: "triviaDB", withExtension: "realm")
-    lazy var configuration = Realm.Configuration(fileURL: dbUrl, readOnly: true)
+    lazy var configuration = Realm.Configuration(fileURL: dbUrl, readOnly: true, objectTypes: [Question.self, Answer.self])
     lazy var realm = try! Realm(configuration: configuration)
     
     func fetchRandom(for difficulty: Int) -> Question? {

@@ -101,6 +101,16 @@ extension UIViewController {
     }
 }
 
+// MARK: - Current time stamp.
+
+extension Date {
+    
+    static var currentTimeStamp: Int64{
+        
+        return Int64(Date().timeIntervalSince1970 * 1000)
+    }
+}
+
 // MARK: - Delay function.
 
 func delay(closure: @escaping ()->()) {

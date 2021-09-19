@@ -11,12 +11,13 @@ import RealmSwift
 class GameSession: Object {
     
     @Persisted var currentQuestionNo: Int
+    @Persisted var currentQuestion: Question?
     
     @Persisted var isLifelineFiftyUsed: Bool
     @Persisted var isLifelinePhoneUsed: Bool
     @Persisted var isLifelineAskAudienceUsed: Bool
     
-    @Persisted var currentQuestion: Question?
+    @Persisted var timeStamp: String?
     
     @objc dynamic var gameStatus: GameStatus = .unInitialized
 }
