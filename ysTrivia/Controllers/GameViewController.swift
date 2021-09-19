@@ -39,7 +39,12 @@ class GameViewController: UIViewController {
     // MARK: - Messages.
     
     let gameOverTitle = "👾 Пипец! 👾"
-    let gameOverMessage = "Сожалею, ответ неверный! Игра окончена."
+    lazy var gameOverMessage = """
+        Сожалею, ответ неверный!
+        Ваш выигрыш в размере несгораемого остатка равен
+        \(gameSession.earnedMoneyGuaranteed.formatted) ₽.
+        Игра окончена.
+        """
     
     // MARK: - Private methods.
     
@@ -64,6 +69,19 @@ class GameViewController: UIViewController {
         
         guard let question = questionProvider.fetchRandom(for: difficultyIndex) else { return }
         guard let questionValue = game.payout[difficultyIndex] else { return }
+        
+        if gameSession.earnedMoney == 0 {
+            
+            endGameButton.setTitle("Забрать деньги и завершить игру.", for: .normal)
+            endGameButton.isEnabled = false
+            endGameButton.alpha = 0.75
+            
+        } else {
+            
+            endGameButton.setTitle("Забрать \(gameSession.earnedMoney.formatted) ₽ и завершить игру.", for: .normal)
+            endGameButton.isEnabled = true
+            endGameButton.alpha = 1.0
+        }
         
         currentQuestionNoLabel.text = "ВОПРОС [ \(difficultyIndex) / \(game.questionsTotal) ]"
         currentQuestionValueLabel.text = "\(questionValue.formatted) ₽"

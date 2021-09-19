@@ -35,6 +35,30 @@ extension Question {
     }
 }
 
+// MARK: - GameSession extensions.
+
+extension GameSession {
+    
+    var earnedMoney: Int {
+        
+        let game = Game.shared
+        return game.payout[self.currentQuestionNo - 1] ?? 0
+    }
+    
+    var earnedMoneyGuaranteed: Int {
+        
+        let game = Game.shared
+        
+        switch self.currentQuestionNo {
+        
+        case 0...5: return 0
+        case 6...10: return game.payout[5] ?? 0
+        case 11...15: return game.payout[10] ?? 0
+        default: return 0
+        }
+    }
+}
+
 // MARK: - Colors.
 
 extension UIColor {
@@ -43,16 +67,6 @@ extension UIColor {
     static var answered: UIColor { return .systemOrange }
     static var correct: UIColor { return .systemGreen }
     static var incorrect: UIColor { return .systemPink }
-    static var disabled: UIColor { return .systemGray3 }
-}
-
-// MARK: - Delay function.
-
-func delay(closure: @escaping ()->()) {
-    
-    let game = Game.shared
-    let when = DispatchTime.now() + game.delayInterval
-    DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
 }
 
 // MARK: - Alert extensions.
@@ -66,4 +80,13 @@ extension UIViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
+}
+
+// MARK: - Delay function.
+
+func delay(closure: @escaping ()->()) {
+    
+    let game = Game.shared
+    let when = DispatchTime.now() + game.delayInterval
+    DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
 }
