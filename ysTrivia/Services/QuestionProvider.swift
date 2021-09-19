@@ -17,7 +17,7 @@ class QuestionProvider {
     func fetchRandom(for difficulty: Int) -> Question? {
         
         let questions = realm.objects(Question.self).filter("difficulty == \(difficulty)")
-        return questions.count > 0 ? questions[Int.random(in: 0...questions.count)] : nil
+        return questions.count > 0 ? questions[Int.random(in: 0...questions.count - 1)] : nil
     }
     
     func numberOfQuestions(for difficulty: Int) -> Int? {
