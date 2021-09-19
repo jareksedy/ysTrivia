@@ -10,7 +10,7 @@ import UIKit
 class GameViewController: UIViewController {
     
     // MARK: - Outlets.
-
+    
     @IBOutlet weak var currentQuestionNoLabel: UILabel!
     @IBOutlet weak var currentQuestionValueLabel: UILabel!
     @IBOutlet weak var currentQuestionLabel: UILabel!
@@ -67,12 +67,21 @@ class GameViewController: UIViewController {
         
         for (index, answer) in question.answers.enumerated() {
             answerButtons[index]?.setTitle(answer.text, for: .normal)
+            answerButtons[index]?.backgroundColor = .unanswered
+            answerButtons[index]?.isEnabled = true
         }
         
         gameSession.currentQuestion = question
     }
     
-    private func evaluate(_ answerIndex: Int) -> Bool {
+    private func disableButtons() {
+        
+        for button in answerButtons {
+            button?.isEnabled = false
+        }
+    }
+    
+    private func isCorrect(_ answerIndex: Int) -> Bool {
         
         return gameSession.currentQuestion?.answers[answerIndex].correct ?? false
     }
@@ -82,8 +91,30 @@ class GameViewController: UIViewController {
     @objc func answerButtonAction(_ sender: UIButton!) {
         
         let answerIndex = sender.tag
-        print(evaluate(answerIndex))
-     }
+        
+        answerButtons[answerIndex]?.backgroundColor = .answered
+        disableButtons()
+        
+        delay { [self] in
+            
+            if isCorrect(answerIndex) { // Ответ верный, идем дальше.
+                
+                answerButtons[answerIndex]?.backgroundColor = .correct
+                
+                delay {
+                    
+                    if gameSession.currentQuestionNo < game.questionsTotal {
+                        gameSession.currentQuestionNo += 1
+                        displayQuestion()
+                    }
+                }
+                
+            } else { // Ответ неверный, завершаем игру.
+                answerButtons[answerIndex]?.backgroundColor = .incorrect
+                answerButtons[gameSession.currentQuestion!.correctIndex]?.backgroundColor = .correct
+            }
+        }
+    }
     
     @IBAction func endGameAction(_ sender: Any) {
         
