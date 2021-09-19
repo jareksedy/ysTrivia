@@ -17,4 +17,15 @@ class GameSession: Object {
     @Persisted var isLifelineAskAudienceUsed: Bool
     
     @Persisted var currentQuestion: Question?
+    
+    @objc dynamic var gameStatus: GameStatus = .unInitialized
+}
+
+@objc enum GameStatus: Int, RealmEnum {
+
+    case unInitialized = 0
+    case inProgress = 1
+    case abortedByUser = 2
+    case lost = 3
+    case won = 4
 }

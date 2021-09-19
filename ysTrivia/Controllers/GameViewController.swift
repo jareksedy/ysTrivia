@@ -77,6 +77,7 @@ class GameViewController: UIViewController {
     // MARK: - Private methods.
     
     private func endGame(_ session: GameSession) {
+        
         gameDelegate?.didEndGame(withResult: session)
         _ = self.navigationController?.popToRootViewController(animated: true)
     }
@@ -94,6 +95,7 @@ class GameViewController: UIViewController {
         gameSession.isLifelineFiftyUsed = false
         gameSession.isLifelinePhoneUsed = false
         gameSession.isLifelineAskAudienceUsed = false
+        gameSession.gameStatus = .inProgress
     }
     
     private func displayQuestion() {
@@ -283,8 +285,11 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func endGameAction(_ sender: Any) {
+        
         displayYesNoAlert(withAlertTitle: endGameTitle,
                           andMessage: endGameMessage) { _ in
+            
+            self.gameSession.gameStatus = .abortedByUser
             self.endGame(self.gameSession)
         }
     }
@@ -303,6 +308,8 @@ class GameViewController: UIViewController {
         answerButtons[gameSession.currentQuestion!.correctIndex]?.backgroundColor = .correct
         answerButtons[gameSession.currentQuestion!.correctIndex]?.alpha = 1.0
         
+        gameSession.gameStatus = .lost
+        
         delay { [self] in
             displayAlert(withAlertTitle: gameOverTitle, andMessage: gameOverMessage) { _ in
                 self.endGame(self.gameSession)
@@ -314,6 +321,8 @@ class GameViewController: UIViewController {
         
         answerButtons[answerIndex]?.backgroundColor = .correct
         answerButtons[gameSession.currentQuestion!.correctIndex]?.alpha = 1.0
+        
+        gameSession.gameStatus = .won
         
         delay { [self] in
             displayAlert(withAlertTitle: winTitle, andMessage: winMessage) { _ in

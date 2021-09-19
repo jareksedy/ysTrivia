@@ -44,19 +44,53 @@ final class Game {
     
     var gameSession: GameSession?
     
-    var percentage: Int {
+    var current: Int {
         
         var current = self.gameSession?.currentQuestionNo ?? 0
-        if current > 0 { current -= 1}
+        
+        if current > 0 { current -= 1 }
+        return current
+    }
+    
+    var percentage: Int {
         
         return current * 100 / questionsTotal
     }
     
     var currentQuestion: String {
+        
         return self.gameSession?.currentQuestion?.text ?? ""
     }
     
     var correctAnswer: String {
+        
         return self.gameSession?.currentQuestion?.answers[self.gameSession?.currentQuestion?.correctIndex ?? 0].text ?? ""
+    }
+    
+    var gameStatus: String {
+        
+        guard let status = self.gameSession?.gameStatus else { return "Статус неизвестен." }
+        
+        switch status {
+        case .unInitialized: return "не инициализирована."
+        case .lost: return "проиграна."
+        case .won: return "выиграна."
+        case .abortedByUser: return "прервана пользователем."
+        case .inProgress: return "в процессе."
+        default: return "не инициализирована."
+        }
+    }
+    
+    var moneyWon: Int {
+        
+        guard let status = self.gameSession?.gameStatus else { return 0 }
+        
+        switch status {
+        case .lost: return self.gameSession!.earnedMoneyGuaranteed
+        case .abortedByUser: return self.gameSession!.earnedMoney
+        case .won: return payout[questionsTotal] ?? 3_000_000
+        case .unInitialized: return 0
+        default: return 0
+        }
     }
 }

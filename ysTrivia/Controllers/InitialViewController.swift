@@ -40,11 +40,12 @@ extension InitialViewController: GameViewControllerDelegate {
         game.gameSession = result
         
         resultLabel.text = """
-        РЕЗУЛЬТАТ ПОСЛЕДНЕЙ ИГРЫ
-        Заработано: \(game.gameSession?.earnedMoneyGuaranteed ?? 0) ₽.
-        Правильные ответы: \(game.gameSession!.currentQuestionNo - 1) из \(game.questionsTotal), \(game.percentage)%.
+        🎮 РЕЗУЛЬТАТ 🧩 ПОСЛЕДНЕЙ ИГРЫ 🏆
+        Статус игры: \(game.gameStatus)
+        Заработано: \(game.moneyWon) ₽.
+        Правильные ответы: \(game.current) из \(game.questionsTotal), \(game.percentage)%.
         
-        ПОДСКАЗКИ
+        🧿 ПОДСКАЗКИ 🧿
         50 на 50: \(game.gameSession?.isLifelineFiftyUsed ?? false ? "Да" : "Нет")
         Помощь зала: \(game.gameSession?.isLifelineAskAudienceUsed ?? false ? "Да" : "Нет")
         Звонок другу: \(game.gameSession?.isLifelinePhoneUsed ?? false ? "Да" : "Нет")
