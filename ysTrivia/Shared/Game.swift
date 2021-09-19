@@ -40,7 +40,7 @@ final class Game {
     ]
     
     let questionsTotal = 15
-    let delayInterval: TimeInterval = 2
+    let delayInterval: TimeInterval = 0.5
     
     var gameSession: GameSession?
 }

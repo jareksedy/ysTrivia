@@ -226,7 +226,7 @@ class GameViewController: UIViewController {
         
         delay { [self] in
             displayAlert(withAlertTitle: audienceTitle,
-                         andMessage: audienceMessage + "\(answer).") { _ in }
+                         andMessage: audienceMessage + "\(answer).")
         }
     }
     
@@ -250,7 +250,7 @@ class GameViewController: UIViewController {
         
         delay { [self] in
             displayAlert(withAlertTitle: friendTitle,
-                         andMessage: friendMessage + "\(answer). \(answerText).") { _ in }
+                         andMessage: friendMessage + "\(answer). \(answerText).")
         }
     }
     

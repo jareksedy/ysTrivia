@@ -82,7 +82,7 @@ extension UIColor {
 
 extension UIViewController {
     
-    func displayAlert(withAlertTitle alertTitle: String, andMessage message: String, _ completion: @escaping (UIAlertAction)->()) {
+    func displayAlert(withAlertTitle alertTitle: String, andMessage message: String, _ completion: ((UIAlertAction)->Void)? = nil) {
         
         let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Окей", style: .default, handler: completion)
