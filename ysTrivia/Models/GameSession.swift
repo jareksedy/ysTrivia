@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class GameSession: Object {
+class GameSession: Object, Codable {
     
     @Persisted var currentQuestionNo: Int
     @Persisted var currentQuestion: Question?
@@ -22,7 +22,7 @@ class GameSession: Object {
     @objc dynamic var gameStatus: GameStatus = .unInitialized
 }
 
-@objc enum GameStatus: Int, RealmEnum {
+@objc enum GameStatus: Int, RealmEnum, Codable {
 
     case unInitialized = 0
     case inProgress = 1
