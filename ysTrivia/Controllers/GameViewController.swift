@@ -65,10 +65,9 @@ class GameViewController: UIViewController {
         
         currentQuestionLabel.text = question.text
         
-        answerButtonA.setTitle(question.answers[0].text, for: .normal)
-        answerButtonB.setTitle(question.answers[1].text, for: .normal)
-        answerButtonC.setTitle(question.answers[2].text, for: .normal)
-        answerButtonD.setTitle(question.answers[3].text, for: .normal)
+        for (index, answer) in question.answers.enumerated() {
+            answerButtons[index]?.setTitle(answer.text, for: .normal)
+        }
         
         gameSession.currentQuestion = question
     }
