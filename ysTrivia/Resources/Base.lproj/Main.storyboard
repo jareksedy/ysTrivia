@@ -186,6 +186,9 @@
                                     <imageReference key="image" image="50.circle" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" scale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="lifelineFiftyAction:" destination="2Py-rx-TIY" eventType="touchUpInside" id="q7c-up-NlK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R55-77-nxY">
                                 <rect key="frame" x="337" y="711" width="52" height="51"/>
@@ -195,6 +198,9 @@
                                     <imageReference key="image" image="phone.circle" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" scale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="lifelinePhoneAction:" destination="2Py-rx-TIY" eventType="touchUpInside" id="0tl-n0-716"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAg-8f-k3L">
                                 <rect key="frame" x="181" y="711" width="52" height="51"/>
@@ -204,6 +210,9 @@
                                     <imageReference key="image" image="person.circle" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" scale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="lifelineAskAudienceAction:" destination="2Py-rx-TIY" eventType="touchUpInside" id="gh8-Pn-5ct"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aWF-ow-gj5"/>

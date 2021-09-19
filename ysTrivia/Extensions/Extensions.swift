@@ -23,6 +23,16 @@ extension Int {
         let formattedValue = formatter.string(from: number)!
         return "\(formattedValue)"
     }
+    
+    static func random(in range: ClosedRange<Int>, excluding x: Int) -> Int {
+        
+        if range.contains(x) {
+            let r = Int.random(in: Range(uncheckedBounds: (range.lowerBound, range.upperBound)))
+            return r == x ? range.upperBound : r
+        } else {
+            return Int.random(in: range)
+        }
+    }
 }
 
 // MARK: - Correct answer index.
@@ -50,7 +60,6 @@ extension GameSession {
         let game = Game.shared
         
         switch self.currentQuestionNo {
-        
         case 0...5: return 0
         case 6...10: return game.payout[5] ?? 0
         case 11...15: return game.payout[10] ?? 0

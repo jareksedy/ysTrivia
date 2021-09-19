@@ -32,6 +32,13 @@ final class Game {
         15: 3_000_000,
     ]
     
+    let letterForAnswerIndex = [
+        0: "A",
+        1: "B",
+        2: "C",
+        3: "D",
+    ]
+    
     let questionsTotal = 15
     let delayInterval: TimeInterval = 2
     

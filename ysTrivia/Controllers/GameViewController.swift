@@ -38,6 +38,12 @@ class GameViewController: UIViewController {
     
     // MARK: - Messages.
     
+    let audienceTitle = "🥸🤮 Помощь зала 🥱😫"
+    let audienceMessage = "Большинство зрителей в зале считает, что правильный ответ — "
+    
+    let friendTitle = "🤷🏻‍♂️ Звонок другу 🤷🏻‍♂️"
+    let friendMessage = "Извини, приятель, точно не знаю, но больше склоняюсь к варианту "
+    
     let gameOverTitle = "👾 Пипец! 👾"
     lazy var gameOverMessage = """
         Сожалею, ответ неверный!
@@ -67,8 +73,77 @@ class GameViewController: UIViewController {
         
         let difficultyIndex = gameSession.currentQuestionNo
         
+        updateButtons()
+        
         guard let question = questionProvider.fetchRandom(for: difficultyIndex) else { return }
         guard let questionValue = game.payout[difficultyIndex] else { return }
+        
+        currentQuestionNoLabel.text = "ВОПРОС [ \(difficultyIndex) / \(game.questionsTotal) ]"
+        currentQuestionValueLabel.text = "\(questionValue.formatted) ₽"
+        
+        currentQuestionLabel.text = question.text
+        
+        for (index, answer) in question.answers.enumerated() {
+            answerButtons[index]?.setTitle(answer.text, for: .normal)
+            answerButtons[index]?.backgroundColor = .unanswered
+            answerButtons[index]?.alpha = 1.0
+            answerButtons[index]?.isEnabled = true
+            answerButtons[index]?.isHidden = false
+        }
+        
+        gameSession.currentQuestion = question
+    }
+    
+    private func disableButtons(_ answerIndex: Int) {
+        
+        lifelineFiftyButton.isEnabled = false
+        lifelineFiftyButton.alpha = 0.75
+        
+        lifelinePhoneButton.isEnabled = false
+        lifelinePhoneButton.alpha = 0.75
+        
+        lifelineAskAudienceButton.isEnabled = false
+        lifelineAskAudienceButton.alpha = 0.75
+        
+        endGameButton.isEnabled = false
+        endGameButton.alpha = 0.75
+        
+        for button in answerButtons {
+            button?.isEnabled = false
+            button?.alpha = button?.tag != answerIndex ? 0.75 : 1.0
+        }
+    }
+    
+    private func isCorrect(_ answerIndex: Int) -> Bool {
+        
+        return gameSession.currentQuestion?.answers[answerIndex].correct ?? false
+    }
+    
+    private func updateButtons() {
+        
+        if gameSession.isLifelineFiftyUsed {
+            lifelineFiftyButton.isEnabled = false
+            lifelineFiftyButton.alpha = 0.75
+        } else {
+            lifelineFiftyButton.isEnabled = true
+            lifelineFiftyButton.alpha = 1.0
+        }
+        
+        if gameSession.isLifelinePhoneUsed {
+            lifelinePhoneButton.isEnabled = false
+            lifelinePhoneButton.alpha = 0.75
+        } else {
+            lifelinePhoneButton.isEnabled = true
+            lifelinePhoneButton.alpha = 1.0
+        }
+        
+        if gameSession.isLifelineAskAudienceUsed {
+            lifelineAskAudienceButton.isEnabled = false
+            lifelineAskAudienceButton.alpha = 0.75
+        } else {
+            lifelineAskAudienceButton.isEnabled = true
+            lifelineAskAudienceButton.alpha = 1.0
+        }
         
         if gameSession.earnedMoney == 0 {
             
@@ -82,34 +157,6 @@ class GameViewController: UIViewController {
             endGameButton.isEnabled = true
             endGameButton.alpha = 1.0
         }
-        
-        currentQuestionNoLabel.text = "ВОПРОС [ \(difficultyIndex) / \(game.questionsTotal) ]"
-        currentQuestionValueLabel.text = "\(questionValue.formatted) ₽"
-        
-        currentQuestionLabel.text = question.text
-        
-        for (index, answer) in question.answers.enumerated() {
-            answerButtons[index]?.setTitle(answer.text, for: .normal)
-            answerButtons[index]?.backgroundColor = .unanswered
-            answerButtons[index]?.alpha = 1.0
-            answerButtons[index]?.isEnabled = true
-        }
-        
-        gameSession.currentQuestion = question
-    }
-    
-    private func disableButtons(_ answerIndex: Int) {
-        
-        
-        for button in answerButtons {
-            button?.isEnabled = false
-            button?.alpha = button?.tag != answerIndex ? 0.75 : 1.0
-        }
-    }
-    
-    private func isCorrect(_ answerIndex: Int) -> Bool {
-        
-        return gameSession.currentQuestion?.answers[answerIndex].correct ?? false
     }
     
     // MARK: - Actions.
@@ -126,7 +173,6 @@ class GameViewController: UIViewController {
             if isCorrect(answerIndex) {
                 // ОТВЕТ ВЕРНЫЙ. ИДЕМ ДАЛЬШЕ.
                 answerButtons[answerIndex]?.backgroundColor = .correct
-                
                 delay {
                     if gameSession.currentQuestionNo < game.questionsTotal {
                         nextQuestion()
@@ -142,10 +188,73 @@ class GameViewController: UIViewController {
         }
     }
     
-    @IBAction func endGameAction(_ sender: Any) {
+    @IBAction func lifelineFiftyAction(_ sender: Any) {
         
-        gameSession.currentQuestionNo < game.questionsTotal ? gameSession.currentQuestionNo += 1 : resetGameSession()
-        displayQuestion()
+        guard let firstIndex = gameSession.currentQuestion?.correctIndex else { return }
+        let secondIndex = Int.random(in: 0...3, excluding: firstIndex)
+        
+        lifelineFiftyButton.isEnabled = false
+        lifelineFiftyButton.alpha = 0.75
+        gameSession.isLifelineFiftyUsed = true
+        
+        for button in answerButtons {
+            
+            if button?.tag != firstIndex && button?.tag != secondIndex {
+                
+                button?.isEnabled = false
+                button?.isHidden = true
+            }
+        }
+    }
+    
+    @IBAction func lifelineAskAudienceAction(_ sender: Any) {
+        
+        guard let firstIndex = gameSession.currentQuestion?.correctIndex else { return }
+        let secondIndex = Int.random(in: 0...3, excluding: firstIndex)
+        
+        var audienceSuggests = 0
+        
+        if gameSession.isLifelineFiftyUsed { audienceSuggests = firstIndex } else {
+            audienceSuggests = Int.random(in: 0...1) == 1 ? firstIndex : secondIndex
+        }
+        
+        lifelineAskAudienceButton.isEnabled = false
+        lifelineAskAudienceButton.alpha = 0.75
+        gameSession.isLifelineAskAudienceUsed = true
+        
+        let answer = game.letterForAnswerIndex[audienceSuggests] ?? "Х/З"
+        
+        delay { [self] in
+            displayAlert(withAlertTitle: audienceTitle,
+                         andMessage: audienceMessage + "\(answer).") { _ in }
+        }
+    }
+    
+    @IBAction func lifelinePhoneAction(_ sender: Any) {
+        
+        guard let firstIndex = gameSession.currentQuestion?.correctIndex else { return }
+        let secondIndex = Int.random(in: 0...3, excluding: firstIndex)
+        
+        var friendSuggests = 0
+        
+        if gameSession.isLifelineFiftyUsed { friendSuggests = firstIndex } else {
+            friendSuggests = Int.random(in: 0...1) == 1 ? firstIndex : secondIndex
+        }
+        
+        lifelinePhoneButton.isEnabled = false
+        lifelinePhoneButton.alpha = 0.75
+        gameSession.isLifelinePhoneUsed = true
+        
+        let answer = game.letterForAnswerIndex[friendSuggests] ?? "Х/З"
+        let answerText = gameSession.currentQuestion?.answers[friendSuggests].text ?? "Х/3"
+        
+        delay { [self] in
+            displayAlert(withAlertTitle: friendTitle,
+                         andMessage: friendMessage + "\(answer). \(answerText).") { _ in }
+        }
+    }
+    
+    @IBAction func endGameAction(_ sender: Any) {
     }
     
     // MARK: - Game lifecycle methods.
