@@ -72,11 +72,17 @@ class GameViewController: UIViewController {
         gameSession.currentQuestion = question
     }
     
+    private func evaluate(_ answerIndex: Int) -> Bool {
+        
+        return gameSession.currentQuestion?.answers[answerIndex].correct ?? false
+    }
+    
     // MARK: - Actions.
     
     @objc func answerButtonAction(_ sender: UIButton!) {
         
-        print("Button \(sender.tag) tapped!")
+        let answerIndex = sender.tag
+        print(evaluate(answerIndex))
      }
     
     @IBAction func endGameAction(_ sender: Any) {
