@@ -59,6 +59,7 @@ class GameViewController: UIViewController {
         answerButtonC.setTitle(question.answers[2].text, for: .normal)
         answerButtonD.setTitle(question.answers[3].text, for: .normal)
         
+        gameSession.currentQuestion = question
     }
     
     // MARK: - Actions.
