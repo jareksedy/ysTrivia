@@ -26,6 +26,10 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var endGameButton: UIButton!
     
+    // MARK: - Array of answer buttons.
+    
+    lazy var answerButtons = [answerButtonA, answerButtonB, answerButtonC, answerButtonD]
+    
     // MARK: - Instances.
     
     let game = Game.shared
@@ -33,6 +37,13 @@ class GameViewController: UIViewController {
     let questionProvider = QuestionProvider()
     
     // MARK: - Private methods.
+    
+    private func addButtonActions() {
+        
+        for button in answerButtons {
+            button?.addTarget(self, action: #selector(answerButtonAction), for: .touchUpInside)
+        }
+    }
     
     private func resetGameSession() {
         
@@ -64,6 +75,11 @@ class GameViewController: UIViewController {
     
     // MARK: - Actions.
     
+    @objc func answerButtonAction(_ sender: UIButton!) {
+        
+        print("Button \(sender.tag) tapped!")
+     }
+    
     @IBAction func endGameAction(_ sender: Any) {
         
         gameSession.currentQuestionNo < game.questionsTotal ? gameSession.currentQuestionNo += 1 : resetGameSession()
@@ -77,7 +93,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         resetGameSession()
+        addButtonActions()
         displayQuestion()
-        
     }
 }
