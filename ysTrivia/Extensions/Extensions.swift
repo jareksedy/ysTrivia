@@ -119,3 +119,37 @@ func delay(closure: @escaping ()->()) {
     let when = DispatchTime.now() + game.delayInterval
     DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
 }
+
+// MARK: - GameStats extensions.
+
+extension GameStats {
+    
+    var text: String {
+        
+        var text = """
+        Результат 🏆 игры ⚽
+        Дата: \(self.gameDate ?? "-")
+        Статус: \(self.gameStatus ?? "неизвестен.")
+        
+        Заработано: \(self.moneyWon) ₽.
+        Правильные ответы: \(self.correctAnswerCount) из 15, \(self.percentage)%.
+        
+        🧿 Подсказки 🧿
+        50 на 50: \(self.isLifelineFiftyUsed ? "Да." : "Нет.")
+        Звонок другу: \(self.isLifelinePhoneUsed ? "Да." : "Нет.")
+        Помощь зала: \(self.isLifelineAskAudienceUsed ? "Да." : "Нет.")
+        """
+        
+        if self.fatalQuestion != nil {
+            
+            text += """
+                
+                
+                Роковой 🔥 вопрос: \(self.fatalQuestion!)
+                Правильный ответ на него: \(self.correctAnswer!)
+                """
+        }
+        
+        return text
+    }
+}

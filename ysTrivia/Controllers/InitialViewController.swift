@@ -18,9 +18,16 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         navigationController?.isNavigationBarHidden = true
+        resultLabel.font = UIFont.monospacedSystemFont(ofSize: 10.0, weight: UIFont.Weight.regular)
         
         if game.gameSession == nil { resultLabel.text = "" }
+        
+        if let lastStats = statsService.fetchLast() {
+            resultLabel.text = lastStats.text.uppercased()
+        }
+        
         versionLabel.text = "Верс. \(game.version)"
     }
     
@@ -60,21 +67,8 @@ extension InitialViewController: GameViewControllerDelegate {
         data.gameDate = String(describing: NSDate.now)
         
         statsService.add(data)
+        game.gameSession = nil
         
-        resultLabel.text = """
-        🎮 РЕЗУЛЬТАТ 🧩 ПОСЛЕДНЕЙ ИГРЫ 🏆
-        Статус игры: \(game.gameStatus)
-        Заработано: \(game.moneyWon) ₽.
-        Правильные ответы: \(game.current) из \(game.questionsTotal), \(game.percentage)%.
-        
-        🧿 ПОДСКАЗКИ 🧿
-        50 на 50: \(game.gameSession?.isLifelineFiftyUsed ?? false ? "Да" : "Нет")
-        Помощь зала: \(game.gameSession?.isLifelineAskAudienceUsed ?? false ? "Да" : "Нет")
-        Звонок другу: \(game.gameSession?.isLifelinePhoneUsed ?? false ? "Да" : "Нет")
-        
-        Результат 🗃️ сохранен.
-        Сыграем ⚽ еще?
-        """
-        
+        resultLabel.text = data.text.uppercased()
     }
 }
