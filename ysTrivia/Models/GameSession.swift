@@ -17,8 +17,6 @@ class GameSession: Object {
     @Persisted var isLifelinePhoneUsed: Bool
     @Persisted var isLifelineAskAudienceUsed: Bool
     
-    @Persisted var timeStamp: String?
-    
     @objc dynamic var gameStatus: GameStatus = .unInitialized
 }
 

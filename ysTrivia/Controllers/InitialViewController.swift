@@ -70,7 +70,7 @@ extension InitialViewController: GameViewControllerDelegate {
         statsService.add(data)
         game.gameSession = nil
         
-        do { try gameSessionCaretaker.destroy() } catch { print(error) }
+        gameSessionCaretaker.destroy()
         
         resultLabel.text = data.text.uppercased()
     }

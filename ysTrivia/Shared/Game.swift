@@ -94,3 +94,5 @@ final class Game {
         }
     }
 }
+
+let objectTypes = [GameStats.self, GamePersisted.self]

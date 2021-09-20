@@ -10,7 +10,7 @@ import RealmSwift
 
 class StatsService {
     
-    lazy var configuration = Realm.Configuration(objectTypes: [GameStats.self, GamePersisted.self, QuestionPersisted.self, AnswerPersisted.self])
+    lazy var configuration = Realm.Configuration(objectTypes: objectTypes)
     lazy var realm = try! Realm(configuration: configuration)
     
     func fetch() -> [GameStats]? {
