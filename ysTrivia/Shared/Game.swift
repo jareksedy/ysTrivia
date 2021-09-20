@@ -72,7 +72,7 @@ final class Game {
     
     var gameStatus: String {
         
-        guard let status = self.gameSession?.gameStatus else { return "Статус неизвестен." }
+        guard let status = self.gameSession?.gameStatus else { return "---" }
         
         switch status {
         case .unInitialized: return "не инициализирована."
