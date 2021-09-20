@@ -13,6 +13,10 @@ protocol GameViewControllerDelegate: AnyObject {
 
 class GameViewController: UIViewController {
     
+    // MARK: - Aborted game.
+    
+    var abortedGame: GamePersisted?
+    
     // MARK: - Delegates.
     
     weak var gameDelegate: GameViewControllerDelegate?
@@ -96,6 +100,17 @@ class GameViewController: UIViewController {
         gameSession.isLifelineFiftyUsed = false
         gameSession.isLifelinePhoneUsed = false
         gameSession.isLifelineAskAudienceUsed = false
+        gameSession.gameStatus = .inProgress
+    }
+    
+    private func restoreGameSession() {
+        
+        guard let abortedGame = abortedGame else { return }
+        
+        gameSession.currentQuestionNo = abortedGame.currentQuestionNo
+        gameSession.isLifelineFiftyUsed = abortedGame.isLifelineFiftyUsed
+        gameSession.isLifelinePhoneUsed = abortedGame.isLifelinePhoneUsed
+        gameSession.isLifelineAskAudienceUsed = abortedGame.isLifelineAskAudienceUsed
         gameSession.gameStatus = .inProgress
     }
     
@@ -340,7 +355,12 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         
-        resetGameSession()
+        if abortedGame != nil {
+            restoreGameSession()
+        } else {
+            resetGameSession()
+        }
+        
         addButtonActions()
         displayQuestion()
     }

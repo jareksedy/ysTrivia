@@ -29,14 +29,27 @@ class InitialViewController: UIViewController {
             resultLabel.text = lastStats.text.uppercased()
         }
         
+        if let _ = gameSessionCaretaker.load() {
+            
+            self.displayYesNoAlert(withAlertTitle: "🚩 Опаньки! 🚩", andMessage: "Найдена незавершенная игра. Возобновить?") { _ in
+                
+                self.performSegue(withIdentifier: "toGameVC", sender: self)
+            }
+        }
+        
         versionLabel.text = "Верс. \(game.version)"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toGameVC" {
+            
             let destination = segue.destination as! GameViewController
             destination.gameDelegate = self
+
+            if let abortedGame = gameSessionCaretaker.load() {
+                destination.abortedGame = abortedGame
+            }
         }
     }
 }
