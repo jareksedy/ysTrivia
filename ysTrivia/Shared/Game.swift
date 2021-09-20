@@ -48,7 +48,10 @@ final class Game {
         
         var current = self.gameSession?.currentQuestionNo ?? 0
         
-        if current > 0 { current -= 1 }
+        if self.gameSession?.gameStatus == .lost && current > 0 {
+            current -= 1
+        }
+        
         return current
     }
     

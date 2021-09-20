@@ -138,7 +138,6 @@ class GameViewController: UIViewController {
         }
         
         gameSession.currentQuestion = question
-        gameSessionCaretaker.save(gameSession)
     }
     
     private func disableButtons(_ answerIndex: Int) {
@@ -317,6 +316,7 @@ class GameViewController: UIViewController {
         
         gameSession.currentQuestionNo += 1
         displayQuestion()
+        gameSessionCaretaker.save(gameSession)
     }
     
     func gameOver(_ answerIndex: Int) {
