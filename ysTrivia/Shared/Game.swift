@@ -44,34 +44,29 @@ final class Game {
     
     var gameSession: GameSession?
     
+    var clockMode = false
+    
     var current: Int {
-        
         var current = self.gameSession?.currentQuestionNo ?? 0
-        
         if self.gameSession?.gameStatus == .lost && current > 0 {
             current -= 1
         }
-        
         return current
     }
     
     var percentage: Int {
-        
         return current * 100 / questionsTotal
     }
     
     var currentQuestion: String {
-        
         return self.gameSession?.currentQuestion?.text ?? ""
     }
     
     var correctAnswer: String {
-        
         return self.gameSession?.currentQuestion?.answers[self.gameSession?.currentQuestion?.correctIndex ?? 0].text ?? ""
     }
     
     var gameStatus: String {
-        
         guard let status = self.gameSession?.gameStatus else { return "---" }
         
         switch status {
@@ -85,7 +80,6 @@ final class Game {
     }
     
     var moneyWon: Int {
-        
         guard let status = self.gameSession?.gameStatus else { return 0 }
         
         switch status {
