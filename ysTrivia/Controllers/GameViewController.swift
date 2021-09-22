@@ -38,6 +38,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var lifelineAskAudienceButton: UIButton!
     @IBOutlet weak var lifelinePhoneButton: UIButton!
     
+    @IBOutlet weak var timerLabel: UILabel!
+    
     @IBOutlet weak var endGameButton: UIButton!
     
     // MARK: - Array of answer buttons.
@@ -55,6 +57,12 @@ class GameViewController: UIViewController {
     // MARK: - Properties.
     
     lazy var difficultyIndex: Observable<Int> = Observable(gameSession.currentQuestionNo)
+    
+    // MARK: - Timer.
+    
+    var timer: Timer?
+    var timerRunCount = 15
+    var timerPaused = false
     
     // MARK: - Messages.
     
@@ -87,6 +95,55 @@ class GameViewController: UIViewController {
         """
     
     // MARK: - Private methods.
+    
+    private func pauseTimer() {
+        
+        guard game.clockMode else { return }
+        guard timer != nil else { return }
+        timerPaused = true
+        
+    }
+    
+    private func resumeTimer() {
+        
+        guard game.clockMode else { return }
+        guard timer != nil else { return }
+        timerPaused = false
+    }
+    
+    private func stopTimer() {
+        
+        guard game.clockMode else { return }
+        guard timer != nil else { return }
+        timer!.invalidate()
+        timer = nil
+    }
+    
+    private func startTimer() {
+        
+        guard game.clockMode else { return }
+        
+        stopTimer()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            
+            if self.timerPaused { return }
+            
+            self.timerLabel.textColor = UIColor.systemPurple
+            self.timerLabel.text = "00:" + String(format: "%02d", self.timerRunCount)
+            self.timerRunCount -= 1
+            
+            if self.timerRunCount < 5 {
+                self.timerLabel.textColor = .incorrect
+            }
+
+            if self.timerRunCount < 0 {
+                self.timerRunCount = 0
+                self.timerLabel.text = "00:" + String(format: "%02d", self.timerRunCount)
+                timer.invalidate()
+            }
+        }
+    }
     
     private func endGame(_ session: GameSession) {
         
@@ -124,6 +181,14 @@ class GameViewController: UIViewController {
     private func displayQuestion() {
         
         difficultyIndex.value = gameSession.currentQuestionNo
+        
+        if game.clockMode {
+            timerLabel.isHidden = false
+            timerRunCount = 15
+            startTimer()
+        } else {
+            timerLabel.isHidden = true
+        }
         
         updateButtons()
         
@@ -215,6 +280,8 @@ class GameViewController: UIViewController {
     
     @objc func answerButtonAction(_ sender: UIButton!) {
         
+        stopTimer()
+        
         let answerIndex = sender.tag
         
         disableButtons(answerIndex)
@@ -264,6 +331,8 @@ class GameViewController: UIViewController {
         guard let firstIndex = gameSession.currentQuestion?.correctIndex else { return }
         let secondIndex = Int.random(in: 0...3, excluding: firstIndex)
         
+        pauseTimer()
+        
         var audienceSuggests = 0
         
         if gameSession.isLifelineFiftyUsed { audienceSuggests = firstIndex } else {
@@ -278,7 +347,9 @@ class GameViewController: UIViewController {
         
         delay { [self] in
             displayAlert(withAlertTitle: audienceTitle,
-                         andMessage: audienceMessage + "\(answer).")
+                         andMessage: audienceMessage + "\(answer).") { _ in
+                resumeTimer()
+            }
         }
     }
     
@@ -286,6 +357,8 @@ class GameViewController: UIViewController {
         
         guard let firstIndex = gameSession.currentQuestion?.correctIndex else { return }
         let secondIndex = Int.random(in: 0...3, excluding: firstIndex)
+        
+        pauseTimer()
         
         var friendSuggests = 0
         
@@ -302,7 +375,9 @@ class GameViewController: UIViewController {
         
         delay { [self] in
             displayAlert(withAlertTitle: friendTitle,
-                         andMessage: friendMessage + "\(answer). \(answerText).")
+                         andMessage: friendMessage + "\(answer). \(answerText).") { _ in
+                resumeTimer()
+            }
         }
     }
     
@@ -374,12 +449,7 @@ class GameViewController: UIViewController {
         
         subscribe()
         
-        if abortedGame != nil {
-            restoreGameSession()
-        } else {
-            resetGameSession()
-        }
-        
+        abortedGame != nil ? restoreGameSession() : resetGameSession()
         addButtonActions()
         displayQuestion()
     }

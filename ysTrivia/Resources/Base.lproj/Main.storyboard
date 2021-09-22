@@ -232,8 +232,8 @@
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 ₽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1M1-wd-5cO">
-                                <rect key="frame" x="0.0" y="120" width="414" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 ₽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1M1-wd-5cO">
+                                <rect key="frame" x="25" y="120" width="68" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" systemColor="systemGreenColor"/>
                                 <nil key="highlightedColor"/>
@@ -351,6 +351,12 @@
                                     <action selector="lifelineAskAudienceAction:" destination="2Py-rx-TIY" eventType="touchUpInside" id="gh8-Pn-5ct"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yb-GB-iPV">
+                                <rect key="frame" x="323.5" y="120" width="65.5" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" systemColor="systemPurpleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aWF-ow-gj5"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -360,11 +366,14 @@
                             <constraint firstAttribute="trailing" secondItem="PEa-SW-eA5" secondAttribute="trailing" constant="25" id="9mw-o6-DcX"/>
                             <constraint firstItem="JIR-K6-OKl" firstAttribute="top" secondItem="aWF-ow-gj5" secondAttribute="top" constant="10" id="AVm-Bt-daY"/>
                             <constraint firstItem="2jo-k4-sH7" firstAttribute="leading" secondItem="aWF-ow-gj5" secondAttribute="leading" constant="25" id="B7Z-WS-sJp"/>
+                            <constraint firstItem="9yb-GB-iPV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1M1-wd-5cO" secondAttribute="trailing" constant="25" id="CPC-QD-bKU"/>
                             <constraint firstItem="EyW-F9-Wv9" firstAttribute="leading" secondItem="aWF-ow-gj5" secondAttribute="leading" constant="25" id="Cyh-VY-MB7"/>
                             <constraint firstItem="aWF-ow-gj5" firstAttribute="trailing" secondItem="R55-77-nxY" secondAttribute="trailing" constant="25" id="D8J-4r-lK8"/>
                             <constraint firstItem="uLV-Jo-DiZ" firstAttribute="top" secondItem="R55-77-nxY" secondAttribute="bottom" constant="25" id="JEZ-4D-WJo"/>
                             <constraint firstItem="ev0-dW-yj6" firstAttribute="leading" secondItem="aWF-ow-gj5" secondAttribute="leading" constant="25" id="Juc-bj-82j"/>
+                            <constraint firstItem="9yb-GB-iPV" firstAttribute="top" secondItem="JIR-K6-OKl" secondAttribute="bottom" constant="10" id="Liz-Qx-cjK"/>
                             <constraint firstItem="jb1-LO-cZH" firstAttribute="top" secondItem="EyW-F9-Wv9" secondAttribute="bottom" constant="10" id="TD3-5Y-wW4"/>
+                            <constraint firstItem="aWF-ow-gj5" firstAttribute="trailing" secondItem="9yb-GB-iPV" secondAttribute="trailing" constant="25" id="TUR-cc-NVt"/>
                             <constraint firstItem="EyW-F9-Wv9" firstAttribute="top" secondItem="HbB-4B-pGE" secondAttribute="bottom" constant="10" id="UcF-h1-zWN"/>
                             <constraint firstItem="aWF-ow-gj5" firstAttribute="trailing" secondItem="JIR-K6-OKl" secondAttribute="trailing" constant="25" id="Y5T-9J-m2x"/>
                             <constraint firstItem="aWF-ow-gj5" firstAttribute="trailing" secondItem="HbB-4B-pGE" secondAttribute="trailing" constant="25" id="YBg-KT-92y"/>
@@ -373,17 +382,17 @@
                             <constraint firstItem="aWF-ow-gj5" firstAttribute="trailing" secondItem="uLV-Jo-DiZ" secondAttribute="trailing" constant="25" id="bUT-so-2Gl"/>
                             <constraint firstItem="HbB-4B-pGE" firstAttribute="leading" secondItem="aWF-ow-gj5" secondAttribute="leading" constant="25" id="c5b-Bh-rdQ"/>
                             <constraint firstItem="uLV-Jo-DiZ" firstAttribute="top" secondItem="cAg-8f-k3L" secondAttribute="bottom" constant="25" id="d0O-KW-i8a"/>
-                            <constraint firstItem="1M1-wd-5cO" firstAttribute="trailing" secondItem="aWF-ow-gj5" secondAttribute="trailing" id="eOu-6J-ETa"/>
                             <constraint firstItem="uLV-Jo-DiZ" firstAttribute="top" secondItem="2jo-k4-sH7" secondAttribute="bottom" constant="25" id="ezo-C3-9Ha"/>
                             <constraint firstItem="PEa-SW-eA5" firstAttribute="top" secondItem="1M1-wd-5cO" secondAttribute="bottom" constant="10" id="fOH-Iz-PYW"/>
                             <constraint firstItem="jb1-LO-cZH" firstAttribute="leading" secondItem="aWF-ow-gj5" secondAttribute="leading" constant="25" id="lZm-W1-8v2"/>
+                            <constraint firstItem="aWF-ow-gj5" firstAttribute="trailing" secondItem="9yb-GB-iPV" secondAttribute="trailing" constant="25" id="nKF-vY-2pg"/>
                             <constraint firstItem="aWF-ow-gj5" firstAttribute="bottom" secondItem="uLV-Jo-DiZ" secondAttribute="bottom" constant="25" id="nUb-zn-Hag"/>
                             <constraint firstItem="PEa-SW-eA5" firstAttribute="leading" secondItem="aWF-ow-gj5" secondAttribute="leading" constant="25" id="qRE-Q5-mTb"/>
                             <constraint firstItem="1M1-wd-5cO" firstAttribute="top" secondItem="JIR-K6-OKl" secondAttribute="bottom" constant="10" id="rNt-x3-glU"/>
                             <constraint firstItem="uLV-Jo-DiZ" firstAttribute="leading" secondItem="aWF-ow-gj5" secondAttribute="leading" constant="25" id="s6H-3D-Eoe"/>
                             <constraint firstItem="aWF-ow-gj5" firstAttribute="trailing" secondItem="jb1-LO-cZH" secondAttribute="trailing" constant="25" id="t4p-gE-goX"/>
                             <constraint firstItem="aWF-ow-gj5" firstAttribute="trailing" secondItem="ev0-dW-yj6" secondAttribute="trailing" constant="25" id="u8i-53-ZHv"/>
-                            <constraint firstItem="1M1-wd-5cO" firstAttribute="leading" secondItem="aWF-ow-gj5" secondAttribute="leading" id="wUA-hE-tlE"/>
+                            <constraint firstItem="1M1-wd-5cO" firstAttribute="leading" secondItem="aWF-ow-gj5" secondAttribute="leading" constant="25" id="wUA-hE-tlE"/>
                             <constraint firstItem="ev0-dW-yj6" firstAttribute="top" secondItem="PEa-SW-eA5" secondAttribute="bottom" constant="25" id="wZb-21-KOZ"/>
                         </constraints>
                     </view>
@@ -400,6 +409,7 @@
                         <outlet property="lifelineAskAudienceButton" destination="cAg-8f-k3L" id="KlR-iz-hfT"/>
                         <outlet property="lifelineFiftyButton" destination="2jo-k4-sH7" id="E7j-jb-7Bx"/>
                         <outlet property="lifelinePhoneButton" destination="R55-77-nxY" id="0Fr-eL-EM7"/>
+                        <outlet property="timerLabel" destination="9yb-GB-iPV" id="GlC-qO-9Tg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTB-hk-pbF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
