@@ -24,12 +24,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrf-zq-9DL">
-                                <rect key="frame" x="25" y="180" width="364" height="100"/>
+                                <rect key="frame" x="25" y="180" width="364" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="9uf-NT-ZK5"/>
+                                    <constraint firstAttribute="height" constant="50" id="9uf-NT-ZK5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="🎮 Играть 🎮">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -38,12 +38,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7d-tb-gCo">
-                                <rect key="frame" x="25" y="305" width="364" height="100"/>
+                                <rect key="frame" x="25" y="240" width="364" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="UED-IK-JQ5"/>
+                                    <constraint firstAttribute="height" constant="50" id="UED-IK-JQ5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="📈 Результаты 📈">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -58,7 +58,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Результат последней игры" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeM-ox-IET">
-                                <rect key="frame" x="25" y="430" width="364" height="14.5"/>
+                                <rect key="frame" x="25" y="315" width="364" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -77,7 +77,7 @@
                             <constraint firstItem="uZs-8F-fzo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="cz8-sq-Q6l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="htj-FZ-BiD" secondAttribute="trailing" constant="25" id="dW5-Sg-aC9"/>
                             <constraint firstItem="htj-FZ-BiD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="dWz-Ah-BIL"/>
-                            <constraint firstItem="p7d-tb-gCo" firstAttribute="top" secondItem="Wrf-zq-9DL" secondAttribute="bottom" constant="25" id="ecw-6b-0Yc"/>
+                            <constraint firstItem="p7d-tb-gCo" firstAttribute="top" secondItem="Wrf-zq-9DL" secondAttribute="bottom" constant="10" id="ecw-6b-0Yc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wrf-zq-9DL" secondAttribute="trailing" constant="25" id="gIW-3l-eGB"/>
                             <constraint firstItem="Wrf-zq-9DL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="jPs-c2-3cN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OeM-ox-IET" secondAttribute="trailing" constant="25" id="lQM-yd-6hU"/>
