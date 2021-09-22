@@ -24,6 +24,7 @@
 		CAAB87FD26F4F9780013461A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CAAB87FC26F4F9780013461A /* Realm */; };
 		CAAB87FF26F4F9780013461A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAAB87FE26F4F9780013461A /* RealmSwift */; };
 		CAAB880126F4FCCB0013461A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB880026F4FCCB0013461A /* Question.swift */; };
+		CAC5617726FACBBB00CA0CEF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5617626FACBBB00CA0CEF /* Observable.swift */; };
 		CAE6BC6D26F79B1100603FF8 /* GameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6BC6C26F79B1100603FF8 /* GameStats.swift */; };
 		CAE6BC6F26F7B9E300603FF8 /* GameSessionCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6BC6E26F7B9E300603FF8 /* GameSessionCaretaker.swift */; };
 		CAE6BC7126F7C27600603FF8 /* GamePersisted.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6BC7026F7C27600603FF8 /* GamePersisted.swift */; };
@@ -47,6 +48,7 @@
 		CAAB87F226F4F6020013461A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAAB87F426F4F6020013461A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAAB880026F4FCCB0013461A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		CAC5617626FACBBB00CA0CEF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		CAE6BC6C26F79B1100603FF8 /* GameStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStats.swift; sourceTree = "<group>"; };
 		CAE6BC6E26F7B9E300603FF8 /* GameSessionCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSessionCaretaker.swift; sourceTree = "<group>"; };
 		CAE6BC7026F7C27600603FF8 /* GamePersisted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePersisted.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				CAAB880226F4FF630013461A /* Models */,
 				CAAB880826F514140013461A /* Data */,
 				CA4BB72226F58538007A0695 /* Shared */,
+				CAC5617826FACBC400CA0CEF /* Observable */,
 				CA621FA526F6705F006EAE77 /* Extensions */,
 				CAAB87FA26F4F6570013461A /* Resources */,
 			);
@@ -161,6 +164,14 @@
 				CA41CBCA26F5F1AE00D13673 /* triviaDB.realm */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		CAC5617826FACBC400CA0CEF /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				CAC5617626FACBBB00CA0CEF /* Observable.swift */,
+			);
+			path = Observable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA4BB72126F58529007A0695 /* Game.swift in Sources */,
+				CAC5617726FACBBB00CA0CEF /* Observable.swift in Sources */,
 				CA621FA426F6705A006EAE77 /* Extensions.swift in Sources */,
 				CAAB880126F4FCCB0013461A /* Question.swift in Sources */,
 				CAE6BC6F26F7B9E300603FF8 /* GameSessionCaretaker.swift in Sources */,

@@ -49,6 +49,10 @@ class GameViewController: UIViewController {
     let questionProvider = QuestionProvider()
     let gameSessionCaretaker = GameSessionCaretaker()
     
+    // MARK: - Properties.
+    
+    lazy var difficultyIndex = gameSession.currentQuestionNo
+    
     // MARK: - Messages.
     
     let audienceTitle = "🥸🤮 Помощь зала 🥱😫"
@@ -116,7 +120,7 @@ class GameViewController: UIViewController {
     
     private func displayQuestion() {
         
-        let difficultyIndex = gameSession.currentQuestionNo
+        difficultyIndex = gameSession.currentQuestionNo
         
         updateButtons()
         
@@ -220,7 +224,7 @@ class GameViewController: UIViewController {
                 // ОТВЕТ ВЕРНЫЙ. ИДЕМ ДАЛЬШЕ.
                 answerButtons[answerIndex]?.backgroundColor = .correct
                 delay {
-                    if gameSession.currentQuestionNo < game.questionsTotal {
+                    if difficultyIndex < game.questionsTotal {
                         nextQuestion()
                     } else {
                         // ИГРА ОКОНЧЕНА. ИГРОК ВЫИГРАЛ МАКСИМАЛЬНУЮ СУММУ.
@@ -315,6 +319,8 @@ class GameViewController: UIViewController {
     func nextQuestion() {
         
         gameSession.currentQuestionNo += 1
+        difficultyIndex = gameSession.currentQuestionNo
+        
         displayQuestion()
         gameSessionCaretaker.save(gameSession)
     }
