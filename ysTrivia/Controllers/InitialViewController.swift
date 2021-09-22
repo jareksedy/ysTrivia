@@ -21,6 +21,7 @@ class InitialViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.isNavigationBarHidden = true
+        
         resultLabel.font = UIFont.monospacedSystemFont(ofSize: 10.0, weight: UIFont.Weight.regular)
         
         if game.gameSession == nil { resultLabel.text = "" }

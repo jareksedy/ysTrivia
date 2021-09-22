@@ -17,15 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кто хочет стать миллионером?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZs-8F-fzo">
-                                <rect key="frame" x="25" y="69" width="364" height="86"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кто хочет стать миллионером?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZs-8F-fzo">
+                                <rect key="frame" x="25" y="113" width="364" height="86"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrf-zq-9DL">
-                                <rect key="frame" x="25" y="180" width="364" height="50"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <rect key="frame" x="25" y="224" width="364" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="9uf-NT-ZK5"/>
                                 </constraints>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7d-tb-gCo">
-                                <rect key="frame" x="25" y="240" width="364" height="50"/>
+                                <rect key="frame" x="25" y="284" width="364" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="UED-IK-JQ5"/>
@@ -52,7 +52,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49B-NA-aj6">
-                                <rect key="frame" x="25" y="300" width="364" height="50"/>
+                                <rect key="frame" x="25" y="344" width="364" height="50"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="V8R-i8-zZX"/>
@@ -62,6 +62,9 @@
                                 <state key="normal" title="⚙️ Настройки ⚙️">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="lMR-Lo-jmL" kind="show" id="feA-s0-cWD"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Версия" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htj-FZ-BiD">
                                 <rect key="frame" x="25" y="822.5" width="364" height="14.5"/>
@@ -70,13 +73,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Результат последней игры" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeM-ox-IET">
-                                <rect key="frame" x="25" y="420" width="364" height="14.5"/>
+                                <rect key="frame" x="25" y="464" width="364" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUj-di-xAW">
-                                <rect key="frame" x="25" y="360" width="364" height="50"/>
+                                <rect key="frame" x="25" y="404" width="364" height="50"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="6ad-vJ-Dg6"/>
@@ -152,7 +155,64 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tKx-OU-Hnt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="964" y="845"/>
+            <point key="canvasLocation" x="129" y="802"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="6Xe-2n-U2I">
+            <objects>
+                <viewController id="lMR-Lo-jmL" customClass="SettingsViewController" customModule="ysTrivia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qhl-qZ-TKs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Настройки игры" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXY-ZK-Vvm">
+                                <rect key="frame" x="25" y="113" width="364" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5UO-bZ-B5Z">
+                                <rect key="frame" x="340" y="181" width="51" height="31"/>
+                                <color key="onTintColor" systemColor="systemGreenColor"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Играть с таймером" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v6-rg-IoA">
+                                <rect key="frame" x="25" y="186" width="290" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozu-Uw-Fj2">
+                                <rect key="frame" x="25" y="232" width="364" height="183"/>
+                                <string key="text">Игра с таймером означает, что время, отведенное на ответ будет ограничено некоторым временным интервалом. Этот интервал варьируется в зависимости от сложности вопроса. Для вопросов с 1 по 5 — 15 секунд, с 6 по 10 — 30 секунд, и с 11 по 15 интервал составляет 45 секунд. Если вы не успеваете ответить на вопрос за это время, игра считается проигранной.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BIk-br-g9o"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="ozu-Uw-Fj2" secondAttribute="trailing" constant="25" id="3j1-2c-C0K"/>
+                            <constraint firstItem="ozu-Uw-Fj2" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="25" id="4Zq-lU-Qfh"/>
+                            <constraint firstItem="5UO-bZ-B5Z" firstAttribute="top" secondItem="WXY-ZK-Vvm" secondAttribute="bottom" constant="25" id="MFK-al-gGL"/>
+                            <constraint firstItem="ozu-Uw-Fj2" firstAttribute="top" secondItem="7v6-rg-IoA" secondAttribute="bottom" constant="25" id="OMe-fb-vbq"/>
+                            <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="WXY-ZK-Vvm" secondAttribute="trailing" constant="25" id="OOl-Zr-VBf"/>
+                            <constraint firstItem="7v6-rg-IoA" firstAttribute="top" secondItem="WXY-ZK-Vvm" secondAttribute="bottom" constant="30" id="VyC-Ei-r29"/>
+                            <constraint firstItem="7v6-rg-IoA" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="25" id="flZ-02-wDw"/>
+                            <constraint firstItem="WXY-ZK-Vvm" firstAttribute="top" secondItem="BIk-br-g9o" secondAttribute="top" constant="25" id="h1M-3r-aLj"/>
+                            <constraint firstItem="5UO-bZ-B5Z" firstAttribute="leading" secondItem="7v6-rg-IoA" secondAttribute="trailing" constant="25" id="swS-rD-9m1"/>
+                            <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="5UO-bZ-B5Z" secondAttribute="trailing" constant="25" id="u5m-jk-gov"/>
+                            <constraint firstItem="WXY-ZK-Vvm" firstAttribute="leading" secondItem="qhl-qZ-TKs" secondAttribute="leading" constant="25" id="xKP-pK-bLw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7rN-NK-54K"/>
+                    <connections>
+                        <outlet property="switchTimer" destination="5UO-bZ-B5Z" id="Gds-PN-fpY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MBd-zR-S6X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="802"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="ryw-KD-HlP">
@@ -163,25 +223,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВОПРОС [1 / 15]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIR-K6-OKl">
-                                <rect key="frame" x="25" y="54" width="364" height="12"/>
+                                <rect key="frame" x="25" y="98" width="364" height="12"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 ₽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1M1-wd-5cO">
-                                <rect key="frame" x="0.0" y="76" width="414" height="57.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" systemColor="systemGreenColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В какой из этих столиц бывших союзных республик раньше появилось метро?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEa-SW-eA5">
-                                <rect key="frame" x="25" y="143.5" width="364" height="86"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                <rect key="frame" x="25" y="159" width="364" height="79"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ev0-dW-yj6">
-                                <rect key="frame" x="25" y="254.5" width="364" height="50"/>
+                                <rect key="frame" x="25" y="263" width="364" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="CVW-PV-9oO"/>
@@ -195,7 +255,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HbB-4B-pGE">
-                                <rect key="frame" x="25" y="314.5" width="364" height="50"/>
+                                <rect key="frame" x="25" y="323" width="364" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1ah-V0-xoH"/>
@@ -209,7 +269,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyW-F9-Wv9">
-                                <rect key="frame" x="25" y="374.5" width="364" height="50"/>
+                                <rect key="frame" x="25" y="383" width="364" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8h3-qW-m3R"/>
@@ -223,7 +283,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jb1-LO-cZH">
-                                <rect key="frame" x="25" y="434.5" width="364" height="50"/>
+                                <rect key="frame" x="25" y="443" width="364" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="nrF-BC-HdF"/>
@@ -252,36 +312,36 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jo-k4-sH7">
-                                <rect key="frame" x="25" y="711" width="52" height="51"/>
+                                <rect key="frame" x="25" y="728" width="35" height="34"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <state key="normal">
                                     <color key="titleColor" systemColor="systemOrangeColor"/>
                                     <imageReference key="image" image="50.circle" catalog="system" symbolScale="large"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" scale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="lifelineFiftyAction:" destination="2Py-rx-TIY" eventType="touchUpInside" id="q7c-up-NlK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R55-77-nxY">
-                                <rect key="frame" x="337" y="711" width="52" height="51"/>
+                                <rect key="frame" x="354" y="728" width="35" height="34"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <state key="normal">
                                     <color key="titleColor" systemColor="systemOrangeColor"/>
                                     <imageReference key="image" image="phone.circle" catalog="system" symbolScale="large"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" scale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="lifelinePhoneAction:" destination="2Py-rx-TIY" eventType="touchUpInside" id="0tl-n0-716"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAg-8f-k3L">
-                                <rect key="frame" x="181" y="711" width="52" height="51"/>
+                                <rect key="frame" x="189.5" y="728" width="35" height="34"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <state key="normal">
                                     <color key="titleColor" systemColor="systemOrangeColor"/>
                                     <imageReference key="image" image="person.circle" catalog="system" symbolScale="large"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" scale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="lifelineAskAudienceAction:" destination="2Py-rx-TIY" eventType="touchUpInside" id="gh8-Pn-5ct"/>
@@ -345,9 +405,10 @@
         <!--Navigation Controller-->
         <scene sceneID="x88-0o-mAH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="eXf-xL-cz5" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eXf-xL-cz5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Ur-OR-4wT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -373,6 +434,9 @@
         <image name="phone.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

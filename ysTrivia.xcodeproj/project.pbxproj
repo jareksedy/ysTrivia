@@ -25,6 +25,7 @@
 		CAAB87FF26F4F9780013461A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAAB87FE26F4F9780013461A /* RealmSwift */; };
 		CAAB880126F4FCCB0013461A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB880026F4FCCB0013461A /* Question.swift */; };
 		CAC5617726FACBBB00CA0CEF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5617626FACBBB00CA0CEF /* Observable.swift */; };
+		CAC5617A26FAE6CB00CA0CEF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5617926FAE6CB00CA0CEF /* SettingsViewController.swift */; };
 		CAE6BC6D26F79B1100603FF8 /* GameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6BC6C26F79B1100603FF8 /* GameStats.swift */; };
 		CAE6BC6F26F7B9E300603FF8 /* GameSessionCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6BC6E26F7B9E300603FF8 /* GameSessionCaretaker.swift */; };
 		CAE6BC7126F7C27600603FF8 /* GamePersisted.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6BC7026F7C27600603FF8 /* GamePersisted.swift */; };
@@ -49,6 +50,7 @@
 		CAAB87F426F4F6020013461A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAAB880026F4FCCB0013461A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		CAC5617626FACBBB00CA0CEF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		CAC5617926FAE6CB00CA0CEF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CAE6BC6C26F79B1100603FF8 /* GameStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStats.swift; sourceTree = "<group>"; };
 		CAE6BC6E26F7B9E300603FF8 /* GameSessionCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSessionCaretaker.swift; sourceTree = "<group>"; };
 		CAE6BC7026F7C27600603FF8 /* GamePersisted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePersisted.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		CA41CBD026F5F59400D13673 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CAC5617926FAE6CB00CA0CEF /* SettingsViewController.swift */,
 				CA9B7FF626F75FED00EE036C /* GameStatsTableViewController.swift */,
 				CA41CBCE26F5F56D00D13673 /* GameViewController.swift */,
 				CA41CBD126F5F5EC00D13673 /* InitialViewController.swift */,
@@ -259,6 +262,7 @@
 				CAE6BC6F26F7B9E300603FF8 /* GameSessionCaretaker.swift in Sources */,
 				CAAB87E726F4F5FD0013461A /* AppDelegate.swift in Sources */,
 				CA4BB72626F5907D007A0695 /* QuestionProvider.swift in Sources */,
+				CAC5617A26FAE6CB00CA0CEF /* SettingsViewController.swift in Sources */,
 				CA41CBCF26F5F56D00D13673 /* GameViewController.swift in Sources */,
 				CAE6BC7126F7C27600603FF8 /* GamePersisted.swift in Sources */,
 				CA4BB72426F58B20007A0695 /* GameSession.swift in Sources */,
