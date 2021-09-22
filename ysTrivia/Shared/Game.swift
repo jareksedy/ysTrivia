@@ -71,10 +71,11 @@ final class Game {
         
         switch status {
         case .unInitialized: return "не инициализирована."
-        case .lost: return "проиграна."
-        case .won: return "выиграна."
-        case .abortedByUser: return "прервана пользователем."
+        case .lost: return "👾 проиграна."
+        case .won: return "🍾 выиграна."
+        case .abortedByUser: return "прервана 🔌 пользователем."
         case .inProgress: return "в процессе."
+        case .lostOnTimeout: return "проиграна ⏳ по таймеру."
         default: return "не инициализирована."
         }
     }
@@ -83,7 +84,7 @@ final class Game {
         guard let status = self.gameSession?.gameStatus else { return 0 }
         
         switch status {
-        case .lost: return self.gameSession!.earnedMoneyGuaranteed
+        case .lost, .lostOnTimeout: return self.gameSession!.earnedMoneyGuaranteed
         case .abortedByUser: return self.gameSession!.earnedMoney
         case .won: return payout[questionsTotal] ?? 3_000_000
         case .unInitialized: return 0

@@ -27,4 +27,5 @@ class GameSession: Object {
     case abortedByUser = 2
     case lost = 3
     case won = 4
+    case lostOnTimeout = 5
 }

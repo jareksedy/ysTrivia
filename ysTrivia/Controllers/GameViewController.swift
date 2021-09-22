@@ -430,7 +430,7 @@ class GameViewController: UIViewController {
         answerButtons[gameSession.currentQuestion!.correctIndex]?.backgroundColor = .correct
         answerButtons[gameSession.currentQuestion!.correctIndex]?.alpha = 1.0
         
-        gameSession.gameStatus = .lost
+        gameSession.gameStatus = .lostOnTimeout
         
         delay { [self] in
             displayAlert(withAlertTitle: gameOverOnTimeoutTitle, andMessage: gameOverOnTimeoutMessage) { _ in
