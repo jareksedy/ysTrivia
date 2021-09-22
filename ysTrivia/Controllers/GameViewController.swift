@@ -87,6 +87,13 @@ class GameViewController: UIViewController {
         Игра окончена.
         """
     
+    let gameOverOnTimeoutTitle = "⏳ Увы! ⏳"
+    lazy var gameOverOnTimeoutMessage = """
+        К сожалению, время, отведенное на ответ вышло!
+        Ваш выигрыш \(gameSession.earnedMoneyGuaranteed > 0 ? "в размере несгораемого остатка равен \("\n" + gameSession.earnedMoneyGuaranteed.formatted) ₽." : "равен нулю.")
+        Игра окончена.
+        """
+    
     let winTitle = "🙌🏼 Вы выиграли 🙌🏼"
     let winMessage = """
         Поздравляю! Это почти невозможно, но вы выиграли три миллиона рублей!
@@ -141,6 +148,7 @@ class GameViewController: UIViewController {
                 self.timerRunCount = 0
                 self.timerLabel.text = "00:" + String(format: "%02d", self.timerRunCount)
                 timer.invalidate()
+                self.gameOverOnTimeout()
             }
         }
     }
@@ -412,6 +420,20 @@ class GameViewController: UIViewController {
         
         delay { [self] in
             displayAlert(withAlertTitle: gameOverTitle, andMessage: gameOverMessage) { _ in
+                self.endGame(self.gameSession)
+            }
+        }
+    }
+    
+    func gameOverOnTimeout() {
+        
+        answerButtons[gameSession.currentQuestion!.correctIndex]?.backgroundColor = .correct
+        answerButtons[gameSession.currentQuestion!.correctIndex]?.alpha = 1.0
+        
+        gameSession.gameStatus = .lost
+        
+        delay { [self] in
+            displayAlert(withAlertTitle: gameOverOnTimeoutTitle, andMessage: gameOverOnTimeoutMessage) { _ in
                 self.endGame(self.gameSession)
             }
         }
