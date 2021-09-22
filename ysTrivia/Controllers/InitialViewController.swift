@@ -32,10 +32,9 @@ class InitialViewController: UIViewController {
         
         if let _ = gameSessionCaretaker.load() {
             
-            self.displayYesNoAlert(withAlertTitle: "🚩 Опаньки! 🚩", andMessage: "Найдена незавершенная игра. Возобновить?") { _ in
-                
+            self.displayYesNoAlert(withAlertTitle: "🚩 Опаньки! 🚩", andMessage: "Найдена незавершенная игра. Возобновить?", yesAction: { _ in
                 self.performSegue(withIdentifier: "toGameVC", sender: self)
-            }
+            }, noAction: { _ in })
         }
         
         versionLabel.text = "Верс. \(game.version)"

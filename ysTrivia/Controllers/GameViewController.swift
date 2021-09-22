@@ -272,7 +272,7 @@ class GameViewController: UIViewController {
         
         if gameSession.earnedMoney == 0 {
             
-            endGameButton.setTitle("Забрать деньги и завершить игру.", for: .normal)
+            endGameButton.setTitle("Завершить игру.", for: .normal)
             endGameButton.isEnabled = false
             endGameButton.alpha = 0.75
             
@@ -391,12 +391,15 @@ class GameViewController: UIViewController {
     
     @IBAction func endGameAction(_ sender: Any) {
         
+        pauseTimer()
+        
         displayYesNoAlert(withAlertTitle: endGameTitle,
-                          andMessage: endGameMessage) { _ in
-            
-            self.gameSession.gameStatus = .abortedByUser
-            self.endGame(self.gameSession)
-        }
+                          andMessage: endGameMessage, yesAction: { _ in
+                            self.gameSession.gameStatus = .abortedByUser
+                            self.endGame(self.gameSession)
+                          }, noAction: { _ in
+                            self.resumeTimer()
+                          })
     }
     
     // MARK: - Game lifecycle methods.
