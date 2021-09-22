@@ -11,6 +11,8 @@ protocol GameViewControllerDelegate: AnyObject {
     func didEndGame(withResult result: GameSession)
 }
 
+class Observer {}
+
 class GameViewController: UIViewController {
     
     // MARK: - Aborted game.
@@ -48,10 +50,11 @@ class GameViewController: UIViewController {
     let gameSession = GameSession()
     let questionProvider = QuestionProvider()
     let gameSessionCaretaker = GameSessionCaretaker()
+    let observer = Observer()
     
     // MARK: - Properties.
     
-    lazy var difficultyIndex = gameSession.currentQuestionNo
+    lazy var difficultyIndex: Observable<Int> = Observable(gameSession.currentQuestionNo)
     
     // MARK: - Messages.
     
@@ -120,14 +123,13 @@ class GameViewController: UIViewController {
     
     private func displayQuestion() {
         
-        difficultyIndex = gameSession.currentQuestionNo
+        difficultyIndex.value = gameSession.currentQuestionNo
         
         updateButtons()
         
-        guard let question = questionProvider.fetchRandom(for: difficultyIndex) else { return }
-        guard let questionValue = game.payout[difficultyIndex] else { return }
+        guard let question = questionProvider.fetchRandom(for: difficultyIndex.value) else { return }
+        guard let questionValue = game.payout[difficultyIndex.value] else { return }
         
-        currentQuestionNoLabel.text = "ВОПРОС [ \(difficultyIndex) / \(game.questionsTotal) ]"
         currentQuestionValueLabel.text = "\(questionValue.formatted) ₽"
         
         currentQuestionLabel.text = question.text
@@ -224,7 +226,7 @@ class GameViewController: UIViewController {
                 // ОТВЕТ ВЕРНЫЙ. ИДЕМ ДАЛЬШЕ.
                 answerButtons[answerIndex]?.backgroundColor = .correct
                 delay {
-                    if difficultyIndex < game.questionsTotal {
+                    if difficultyIndex.value < game.questionsTotal {
                         nextQuestion()
                     } else {
                         // ИГРА ОКОНЧЕНА. ИГРОК ВЫИГРАЛ МАКСИМАЛЬНУЮ СУММУ.
@@ -319,7 +321,7 @@ class GameViewController: UIViewController {
     func nextQuestion() {
         
         gameSession.currentQuestionNo += 1
-        difficultyIndex = gameSession.currentQuestionNo
+        difficultyIndex.value = gameSession.currentQuestionNo
         
         displayQuestion()
         gameSessionCaretaker.save(gameSession)
@@ -354,12 +356,23 @@ class GameViewController: UIViewController {
         }
     }
     
+    // MARK: - Observed.
+    
+    private func subscribe() {
+        
+        difficultyIndex.addObserver(observer, options: [.initial, .new, .old]) { dI, change in
+            self.currentQuestionNoLabel.text = "Вопрос № \(dI) / \(self.game.questionsTotal), \((dI - 1) * 100 / self.game.questionsTotal)% правильных ответов."
+        }
+    }
+    
     // MARK: - View controller methods.
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
+        
+        subscribe()
         
         if abortedGame != nil {
             restoreGameSession()
