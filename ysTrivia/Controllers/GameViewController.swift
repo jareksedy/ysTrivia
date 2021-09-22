@@ -89,7 +89,7 @@ class GameViewController: UIViewController {
     
     let gameOverOnTimeoutTitle = "⏳ Увы! ⏳"
     lazy var gameOverOnTimeoutMessage = """
-        К сожалению, время, отведенное на ответ вышло!
+        К сожалению, время, отведенное на ответ, вышло!
         Ваш выигрыш \(gameSession.earnedMoneyGuaranteed > 0 ? "в размере несгораемого остатка равен \("\n" + gameSession.earnedMoneyGuaranteed.formatted) ₽." : "равен нулю.")
         Игра окончена.
         """
@@ -192,7 +192,7 @@ class GameViewController: UIViewController {
         
         if game.clockMode {
             timerLabel.isHidden = false
-            timerRunCount = 15
+            timerRunCount = gameSession.timeoutValue
             startTimer()
         } else {
             timerLabel.isHidden = true

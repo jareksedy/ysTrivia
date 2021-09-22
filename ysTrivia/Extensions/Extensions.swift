@@ -67,6 +67,16 @@ extension GameSession {
         default: return 0
         }
     }
+    
+    var timeoutValue: Int {
+        
+        switch self.currentQuestionNo {
+        case 0...5: return 15
+        case 6...10: return 30
+        case 11...15: return 45
+        default: return 15
+        }
+    }
 }
 
 // MARK: - Colors.
