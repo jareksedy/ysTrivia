@@ -461,7 +461,7 @@ class GameViewController: UIViewController {
     private func subscribe() {
         
         difficultyIndex.addObserver(observer, options: [.initial, .new, .old]) { dI, change in
-            self.currentQuestionNoLabel.text = "Вопрос № \(dI) / \(self.game.questionsTotal), \((dI - 1) * 100 / self.game.questionsTotal)% правильных ответов."
+            self.currentQuestionNoLabel.text = "Вопрос № \(dI) / \(self.game.questionsTotal), \((dI - 1) * 100 / self.game.questionsTotal)% правильных ответов.".uppercased()
         }
     }
     
@@ -471,6 +471,9 @@ class GameViewController: UIViewController {
         
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
+        
+        currentQuestionValueLabel.font = UIFont.monospacedSystemFont(ofSize: 24.0, weight: UIFont.Weight.bold)
+        timerLabel.font = UIFont.monospacedSystemFont(ofSize: 24.0, weight: UIFont.Weight.bold)
         
         subscribe()
         
