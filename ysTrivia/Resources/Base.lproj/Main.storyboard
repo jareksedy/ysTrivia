@@ -25,7 +25,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrf-zq-9DL">
                                 <rect key="frame" x="25" y="180" width="364" height="50"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="9uf-NT-ZK5"/>
                                 </constraints>
@@ -51,6 +51,18 @@
                                     <segue destination="XtP-M8-m0S" kind="show" id="frl-rz-B9E"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49B-NA-aj6">
+                                <rect key="frame" x="25" y="300" width="364" height="50"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="V8R-i8-zZX"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="pNo-9Y-pdV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="⚙️ Настройки ⚙️">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Версия" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htj-FZ-BiD">
                                 <rect key="frame" x="25" y="822.5" width="364" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -58,21 +70,39 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Результат последней игры" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeM-ox-IET">
-                                <rect key="frame" x="25" y="315" width="364" height="14.5"/>
+                                <rect key="frame" x="25" y="420" width="364" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUj-di-xAW">
+                                <rect key="frame" x="25" y="360" width="364" height="50"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="6ad-vJ-Dg6"/>
+                                    <constraint firstAttribute="height" constant="50" id="q2Q-jD-Mwt"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="qzm-Pw-7k5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="➕ Добавить вопрос ➕">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uZs-8F-fzo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="2h8-eh-Q1e"/>
+                            <constraint firstItem="zUj-di-xAW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="7Dq-bv-Xec"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p7d-tb-gCo" secondAttribute="trailing" constant="25" id="KZe-Rt-k0k"/>
-                            <constraint firstItem="OeM-ox-IET" firstAttribute="top" secondItem="p7d-tb-gCo" secondAttribute="bottom" constant="25" id="Kqk-xF-4uM"/>
+                            <constraint firstItem="OeM-ox-IET" firstAttribute="top" secondItem="zUj-di-xAW" secondAttribute="bottom" constant="10" id="Kqk-xF-4uM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uZs-8F-fzo" secondAttribute="trailing" constant="25" id="MS6-cq-qwh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="49B-NA-aj6" secondAttribute="trailing" constant="25" id="MtH-mc-ZzY"/>
+                            <constraint firstItem="49B-NA-aj6" firstAttribute="top" secondItem="p7d-tb-gCo" secondAttribute="bottom" constant="10" id="PWX-jd-daU"/>
+                            <constraint firstItem="zUj-di-xAW" firstAttribute="top" secondItem="49B-NA-aj6" secondAttribute="bottom" constant="10" id="PkQ-hc-OaA"/>
                             <constraint firstItem="Wrf-zq-9DL" firstAttribute="top" secondItem="uZs-8F-fzo" secondAttribute="bottom" constant="25" id="SpI-3u-6lu"/>
                             <constraint firstItem="OeM-ox-IET" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="T9r-Rh-KgR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zUj-di-xAW" secondAttribute="trailing" constant="25" id="YEz-eO-S2h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="htj-FZ-BiD" secondAttribute="bottom" constant="25" id="Ygd-Iv-YpJ"/>
                             <constraint firstItem="uZs-8F-fzo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="cz8-sq-Q6l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="htj-FZ-BiD" secondAttribute="trailing" constant="25" id="dW5-Sg-aC9"/>
@@ -81,6 +111,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wrf-zq-9DL" secondAttribute="trailing" constant="25" id="gIW-3l-eGB"/>
                             <constraint firstItem="Wrf-zq-9DL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="jPs-c2-3cN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OeM-ox-IET" secondAttribute="trailing" constant="25" id="lQM-yd-6hU"/>
+                            <constraint firstItem="49B-NA-aj6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="rkg-he-x1v"/>
                             <constraint firstItem="p7d-tb-gCo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="uth-c8-AWd"/>
                         </constraints>
                     </view>
