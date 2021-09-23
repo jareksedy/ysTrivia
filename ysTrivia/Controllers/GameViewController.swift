@@ -39,6 +39,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var lifelinePhoneButton: UIButton!
     
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var hellmodeLabel: UILabel!
     
     @IBOutlet weak var endGameButton: UIButton!
     
@@ -466,6 +467,8 @@ class GameViewController: UIViewController {
         
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
+        
+        if game.hellMode { hellmodeLabel.isHidden = false } else { hellmodeLabel.isHidden = true }
         
         currentQuestionValueLabel.font = UIFont.monospacedSystemFont(ofSize: 24.0, weight: UIFont.Weight.bold)
         timerLabel.font = UIFont.monospacedSystemFont(ofSize: 24.0, weight: UIFont.Weight.bold)
