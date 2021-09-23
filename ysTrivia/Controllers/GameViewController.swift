@@ -51,7 +51,7 @@ class GameViewController: UIViewController {
     
     let game = Game.shared
     let gameSession = GameSession()
-    let questionProvider = QuestionProvider()
+    let questionProvider = QuestionProvider(strategy: Game.shared.hellMode ? HellmodeStrategy() : NormalStrategy())
     let gameSessionCaretaker = GameSessionCaretaker()
     let observer = Observer()
     
