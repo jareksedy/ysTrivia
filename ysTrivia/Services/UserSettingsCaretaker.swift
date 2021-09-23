@@ -22,6 +22,7 @@ class UserSettingsCaretaker {
         
         settings.recordID = key
         settings.clockMode = game.clockMode
+        settings.hellMode = game.hellMode
         
         try! realm.write {
             realm.add(settings, update: .all)
