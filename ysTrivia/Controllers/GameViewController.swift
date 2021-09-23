@@ -75,9 +75,7 @@ class GameViewController: UIViewController {
     let endGameTitle = "🤔 Завершить игру? 🤔"
     lazy var endGameMessage = """
         Вы уверены что хотите завершить игру
-        и забрать ваш выигрыш
-        \(gameSession.earnedMoney.formatted) ₽?
-        Вы хорошо подумали?
+        и \( gameSession.earnedMoney > 0 ? "забрать ваш выигрыш " + gameSession.earnedMoney.formatted + " ₽?" : "уйти ни с чем?")
         """
     
     let gameOverTitle = "👾 Пипец! 👾"
@@ -270,17 +268,10 @@ class GameViewController: UIViewController {
             lifelineAskAudienceButton.alpha = 1.0
         }
         
-        if gameSession.earnedMoney == 0 {
-            
-            endGameButton.setTitle("Завершить игру.", for: .normal)
-            endGameButton.isEnabled = false
-            endGameButton.alpha = 0.75
-            
+        if difficultyIndex.value == 1 {
+            endGameButton.setTitle("Завершить игру", for: .normal)
         } else {
-            
-            endGameButton.setTitle("Забрать \(gameSession.earnedMoney.formatted) ₽ и завершить игру.", for: .normal)
-            endGameButton.isEnabled = true
-            endGameButton.alpha = 1.0
+            endGameButton.setTitle("Забрать \(gameSession.earnedMoney.formatted) ₽ и завершить игру", for: .normal)
         }
     }
     
