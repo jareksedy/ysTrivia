@@ -15,14 +15,15 @@ class InitialViewController: UIViewController {
     let game = Game.shared
     let statsService = StatsService()
     let gameSessionCaretaker = GameSessionCaretaker()
+    let userSettingsCaretaker = UserSettingsCaretaker()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         navigationController?.isNavigationBarHidden = true
-        
         resultLabel.font = UIFont.monospacedSystemFont(ofSize: 10.0, weight: UIFont.Weight.regular)
+        
+        userSettingsCaretaker.load()
         
         if game.gameSession == nil { resultLabel.text = "" }
         

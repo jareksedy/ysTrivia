@@ -16,6 +16,7 @@ class SettingsViewController: UIViewController {
     
     
     let game = Game.shared
+    let userSettingsCaretaker = UserSettingsCaretaker()
     
     let hintTimerText = """
                         Игра с таймером означает, что время, отведенное на ответ, ограничено. Временное ограничение варьируется в зависимости от сложности вопроса:
@@ -60,6 +61,8 @@ class SettingsViewController: UIViewController {
             game.clockMode = false
             hintTimerLabel.text = ""
         }
+        
+        userSettingsCaretaker.save()
     }
     
     @IBAction func hellmodeSwitchChanged(_ sender: Any) {
@@ -71,5 +74,7 @@ class SettingsViewController: UIViewController {
             game.hellMode = false
             hellmodeHintLabel.text = ""
         }
+        
+        userSettingsCaretaker.save()
     }
 }
