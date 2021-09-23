@@ -270,8 +270,12 @@ class GameViewController: UIViewController {
         
         if difficultyIndex.value == 1 {
             endGameButton.setTitle("Завершить игру", for: .normal)
+            endGameButton.isEnabled = true
+            endGameButton.alpha = 1.0
         } else {
             endGameButton.setTitle("Забрать \(gameSession.earnedMoney.formatted) ₽ и завершить игру", for: .normal)
+            endGameButton.isEnabled = true
+            endGameButton.alpha = 1.0
         }
     }
     

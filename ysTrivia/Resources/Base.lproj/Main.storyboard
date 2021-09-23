@@ -184,11 +184,28 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozu-Uw-Fj2">
-                                <rect key="frame" x="25" y="232" width="364" height="183"/>
-                                <string key="text">Игра с таймером означает, что время, отведенное на ответ будет ограничено некоторым временным интервалом. Этот интервал варьируется в зависимости от сложности вопроса. Для вопросов с 1 по 5 — 15 секунд, с 6 по 10 — 30 секунд, и с 11 по 15 интервал составляет 45 секунд. Если вы не успеваете ответить на вопрос за это время, игра считается проигранной.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer hint" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozu-Uw-Fj2">
+                                <rect key="frame" x="24" y="232" width="365" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1p3-gy-Pn7">
+                                <rect key="frame" x="340" y="274" width="51" height="31"/>
+                                <connections>
+                                    <action selector="hellmodeSwitchChanged:" destination="lMR-Lo-jmL" eventType="valueChanged" id="gb4-Mf-JXs"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Адский 🔥 режим" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3b-Py-Ohv">
+                                <rect key="frame" x="25" y="279" width="290" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hellmode hint" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76E-xd-yxC">
+                                <rect key="frame" x="24" y="325" width="365" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -196,13 +213,21 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="ozu-Uw-Fj2" secondAttribute="trailing" constant="25" id="3j1-2c-C0K"/>
-                            <constraint firstItem="ozu-Uw-Fj2" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="25" id="4Zq-lU-Qfh"/>
+                            <constraint firstItem="ozu-Uw-Fj2" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="24" id="4Zq-lU-Qfh"/>
+                            <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="1p3-gy-Pn7" secondAttribute="trailing" constant="25" id="FZE-pQ-d3t"/>
                             <constraint firstItem="5UO-bZ-B5Z" firstAttribute="top" secondItem="WXY-ZK-Vvm" secondAttribute="bottom" constant="25" id="MFK-al-gGL"/>
                             <constraint firstItem="ozu-Uw-Fj2" firstAttribute="top" secondItem="7v6-rg-IoA" secondAttribute="bottom" constant="25" id="OMe-fb-vbq"/>
                             <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="WXY-ZK-Vvm" secondAttribute="trailing" constant="25" id="OOl-Zr-VBf"/>
+                            <constraint firstItem="76E-xd-yxC" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="24" id="QWM-Xs-OAp"/>
+                            <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="76E-xd-yxC" secondAttribute="trailing" constant="25" id="VEs-fM-cO5"/>
                             <constraint firstItem="7v6-rg-IoA" firstAttribute="top" secondItem="WXY-ZK-Vvm" secondAttribute="bottom" constant="30" id="VyC-Ei-r29"/>
+                            <constraint firstItem="76E-xd-yxC" firstAttribute="top" secondItem="Z3b-Py-Ohv" secondAttribute="bottom" constant="25" id="fJ8-50-WpZ"/>
+                            <constraint firstItem="1p3-gy-Pn7" firstAttribute="leading" secondItem="Z3b-Py-Ohv" secondAttribute="trailing" constant="25" id="fMc-Eb-jSg"/>
                             <constraint firstItem="7v6-rg-IoA" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="25" id="flZ-02-wDw"/>
                             <constraint firstItem="WXY-ZK-Vvm" firstAttribute="top" secondItem="BIk-br-g9o" secondAttribute="top" constant="25" id="h1M-3r-aLj"/>
+                            <constraint firstItem="1p3-gy-Pn7" firstAttribute="top" secondItem="ozu-Uw-Fj2" secondAttribute="bottom" constant="25" id="hlP-BX-qjE"/>
+                            <constraint firstItem="Z3b-Py-Ohv" firstAttribute="top" secondItem="ozu-Uw-Fj2" secondAttribute="bottom" constant="30" id="nuT-tx-3Fu"/>
+                            <constraint firstItem="Z3b-Py-Ohv" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="25" id="oiE-Hm-QTW"/>
                             <constraint firstItem="5UO-bZ-B5Z" firstAttribute="leading" secondItem="7v6-rg-IoA" secondAttribute="trailing" constant="25" id="swS-rD-9m1"/>
                             <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="5UO-bZ-B5Z" secondAttribute="trailing" constant="25" id="u5m-jk-gov"/>
                             <constraint firstItem="WXY-ZK-Vvm" firstAttribute="leading" secondItem="qhl-qZ-TKs" secondAttribute="leading" constant="25" id="xKP-pK-bLw"/>
@@ -210,7 +235,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="7rN-NK-54K"/>
                     <connections>
-                        <outlet property="hintLabel" destination="ozu-Uw-Fj2" id="66D-6K-rwh"/>
+                        <outlet property="hellmodeHintLabel" destination="76E-xd-yxC" id="iVO-c4-27v"/>
+                        <outlet property="hintTimerLabel" destination="ozu-Uw-Fj2" id="sZ4-ZP-Vkj"/>
+                        <outlet property="switchHellmode" destination="1p3-gy-Pn7" id="Br0-g1-7FK"/>
                         <outlet property="switchTimer" destination="5UO-bZ-B5Z" id="Gds-PN-fpY"/>
                     </connections>
                 </viewController>
