@@ -12,7 +12,7 @@ final class Game {
     static let shared = Game()
     private init() {}
     
-    let version = "1.5.0"
+    let version = "2.0.0"
     
     let payout = [
         1: 500,
@@ -44,7 +44,7 @@ final class Game {
     
     var gameSession: GameSession?
     
-    var clockMode = false
+    var clockMode = true
     var hellMode = false
     
     var current: Int {
