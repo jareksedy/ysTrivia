@@ -14,6 +14,7 @@ class UserSettings: Object {
 
     @Persisted var clockMode: Bool
     @Persisted var hellMode: Bool
+    @Persisted var userQuestionMode: Bool
 
     override static func primaryKey() -> String? {
         return "recordID"

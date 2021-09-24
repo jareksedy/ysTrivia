@@ -23,6 +23,7 @@ class UserSettingsCaretaker {
         settings.recordID = key
         settings.clockMode = game.clockMode
         settings.hellMode = game.hellMode
+        settings.userQuestionMode = game.userQuestionMode
         
         try! realm.write {
             realm.add(settings, update: .all)
@@ -36,6 +37,7 @@ class UserSettingsCaretaker {
         if let settings = realm.objects(UserSettings.self).first {
             game.clockMode = settings.clockMode
             game.hellMode = settings.hellMode
+            game.userQuestionMode = settings.userQuestionMode
         } else {
             return
         }

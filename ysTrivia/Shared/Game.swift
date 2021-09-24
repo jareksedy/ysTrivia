@@ -44,8 +44,11 @@ final class Game {
     
     var gameSession: GameSession?
     
+    // MARK: - Default settings.
+    
     var clockMode = true
     var hellMode = false
+    var userQuestionMode = false
     
     var current: Int {
         var current = self.gameSession?.currentQuestionNo ?? 0

@@ -211,19 +211,35 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Yar-tH-iEp">
+                                <rect key="frame" x="340" y="367" width="51" height="31"/>
+                                <connections>
+                                    <action selector="userQuestionSwitchChanged:" destination="lMR-Lo-jmL" eventType="valueChanged" id="PKV-QP-jd8"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваша база вопросов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Muw-MU-63t">
+                                <rect key="frame" x="25" y="372" width="305" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BIk-br-g9o"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="ozu-Uw-Fj2" secondAttribute="trailing" constant="25" id="3j1-2c-C0K"/>
                             <constraint firstItem="ozu-Uw-Fj2" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="24" id="4Zq-lU-Qfh"/>
+                            <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="Yar-tH-iEp" secondAttribute="trailing" constant="25" id="Bqu-Jb-Cu0"/>
                             <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="1p3-gy-Pn7" secondAttribute="trailing" constant="25" id="FZE-pQ-d3t"/>
+                            <constraint firstItem="Yar-tH-iEp" firstAttribute="leading" secondItem="Muw-MU-63t" secondAttribute="trailing" constant="10" id="Hnc-RL-GzC"/>
                             <constraint firstItem="5UO-bZ-B5Z" firstAttribute="top" secondItem="WXY-ZK-Vvm" secondAttribute="bottom" constant="25" id="MFK-al-gGL"/>
                             <constraint firstItem="ozu-Uw-Fj2" firstAttribute="top" secondItem="7v6-rg-IoA" secondAttribute="bottom" constant="25" id="OMe-fb-vbq"/>
                             <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="WXY-ZK-Vvm" secondAttribute="trailing" constant="25" id="OOl-Zr-VBf"/>
+                            <constraint firstItem="Yar-tH-iEp" firstAttribute="top" secondItem="76E-xd-yxC" secondAttribute="bottom" constant="25" id="OVf-2N-XHL"/>
                             <constraint firstItem="76E-xd-yxC" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="24" id="QWM-Xs-OAp"/>
                             <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="76E-xd-yxC" secondAttribute="trailing" constant="25" id="VEs-fM-cO5"/>
                             <constraint firstItem="7v6-rg-IoA" firstAttribute="top" secondItem="WXY-ZK-Vvm" secondAttribute="bottom" constant="30" id="VyC-Ei-r29"/>
+                            <constraint firstItem="Muw-MU-63t" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="25" id="eIk-Ww-jZt"/>
                             <constraint firstItem="76E-xd-yxC" firstAttribute="top" secondItem="Z3b-Py-Ohv" secondAttribute="bottom" constant="25" id="fJ8-50-WpZ"/>
                             <constraint firstItem="1p3-gy-Pn7" firstAttribute="leading" secondItem="Z3b-Py-Ohv" secondAttribute="trailing" constant="25" id="fMc-Eb-jSg"/>
                             <constraint firstItem="7v6-rg-IoA" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="25" id="flZ-02-wDw"/>
@@ -234,6 +250,7 @@
                             <constraint firstItem="5UO-bZ-B5Z" firstAttribute="leading" secondItem="7v6-rg-IoA" secondAttribute="trailing" constant="25" id="swS-rD-9m1"/>
                             <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="5UO-bZ-B5Z" secondAttribute="trailing" constant="25" id="u5m-jk-gov"/>
                             <constraint firstItem="WXY-ZK-Vvm" firstAttribute="leading" secondItem="qhl-qZ-TKs" secondAttribute="leading" constant="25" id="xKP-pK-bLw"/>
+                            <constraint firstItem="Muw-MU-63t" firstAttribute="top" secondItem="76E-xd-yxC" secondAttribute="bottom" constant="30" id="xom-YD-bb5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7rN-NK-54K"/>
@@ -242,6 +259,7 @@
                         <outlet property="hintTimerLabel" destination="ozu-Uw-Fj2" id="sZ4-ZP-Vkj"/>
                         <outlet property="switchHellmode" destination="1p3-gy-Pn7" id="Br0-g1-7FK"/>
                         <outlet property="switchTimer" destination="5UO-bZ-B5Z" id="Gds-PN-fpY"/>
+                        <outlet property="switchUserQuestionMode" destination="Yar-tH-iEp" id="UIb-YZ-Fhx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBd-zR-S6X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

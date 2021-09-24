@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var hintTimerLabel: UILabel!
     @IBOutlet weak var switchHellmode: UISwitch!
     @IBOutlet weak var hellmodeHintLabel: UILabel!
+    @IBOutlet weak var switchUserQuestionMode: UISwitch!
     
     
     let game = Game.shared
@@ -35,6 +36,13 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
         
+        let questionProvider = QuestionProvider(strategy: UserQuestionsStrategy())
+        if questionProvider.fetchRandom(for: 1) == nil {
+            game.userQuestionMode = false
+            switchUserQuestionMode.isOn = false
+            switchUserQuestionMode.isEnabled = false
+        }
+        
         if game.clockMode {
             switchTimer.isOn = true
             hintTimerLabel.text = hintTimerText
@@ -50,6 +58,17 @@ class SettingsViewController: UIViewController {
             switchHellmode.isOn = false
             hellmodeHintLabel.text = ""
         }
+        
+        if game.userQuestionMode {
+            switchHellmode.isEnabled = false
+            switchHellmode.isOn = false
+            switchUserQuestionMode.isEnabled = true
+        } else {
+            switchHellmode.isEnabled = true
+            switchHellmode.isOn = game.hellMode
+            switchUserQuestionMode.isOn = false
+        }
+
     }
     
     @IBAction func timerSwitchChanged(_ sender: Any) {
@@ -73,6 +92,23 @@ class SettingsViewController: UIViewController {
         } else {
             game.hellMode = false
             hellmodeHintLabel.text = ""
+        }
+        
+        userSettingsCaretaker.save()
+    }
+    
+    @IBAction func userQuestionSwitchChanged(_ sender: Any) {
+        
+        if switchUserQuestionMode.isOn {
+            game.userQuestionMode = true
+            switchHellmode.isEnabled = false
+            switchHellmode.isOn = false
+            //hellmodeHintLabel.text = ""
+        } else {
+            game.userQuestionMode = false
+            switchHellmode.isEnabled = true
+            switchHellmode.isOn = game.hellMode
+            //hellmodeHintLabel.text = hellmodeText
         }
         
         userSettingsCaretaker.save()

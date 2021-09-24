@@ -66,19 +66,27 @@ class UserQuestionsStrategy: QuestionStrategy {
         question.text = randomUserQuestion.text
         question.difficulty = randomUserQuestion.difficulty
         
-        question.answers[0].text = randomUserQuestion.answer1
-        question.answers[0].correct = false
+        let answer1 = Answer()
+        let answer2 = Answer()
+        let answer3 = Answer()
+        let answer4 = Answer()
         
-        question.answers[1].text = randomUserQuestion.answer2
-        question.answers[1].correct = false
+        answer1.text = randomUserQuestion.answer1
+        answer1.correct = randomUserQuestion.correctIndex == 0 ? true : false
         
-        question.answers[2].text = randomUserQuestion.answer2
-        question.answers[2].correct = false
+        answer2.text = randomUserQuestion.answer2
+        answer2.correct = randomUserQuestion.correctIndex == 1 ? true : false
+
+        answer3.text = randomUserQuestion.answer3
+        answer3.correct = randomUserQuestion.correctIndex == 2 ? true : false
         
-        question.answers[3].text = randomUserQuestion.answer3
-        question.answers[3].correct = false
-        
-        question.answers[randomUserQuestion.correctIndex].correct = true
+        answer4.text = randomUserQuestion.answer4
+        answer4.correct = randomUserQuestion.correctIndex == 3 ? true : false
+
+        question.answers.append(answer1)
+        question.answers.append(answer2)
+        question.answers.append(answer3)
+        question.answers.append(answer4)
         
         return question
     }
