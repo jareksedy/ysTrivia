@@ -263,50 +263,50 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите вопрос" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lp0-r4-sOi">
-                                <rect key="frame" x="25" y="181" width="364" height="50"/>
+                                <rect key="frame" x="25" y="181" width="364" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="8ol-fe-3D6"/>
+                                    <constraint firstAttribute="height" constant="35" id="8ol-fe-3D6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вариант ответа №1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B3c-fk-QXC">
-                                <rect key="frame" x="25" y="241" width="364" height="50"/>
+                                <rect key="frame" x="25" y="226" width="364" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="TAl-Wn-gFE"/>
+                                    <constraint firstAttribute="height" constant="35" id="TAl-Wn-gFE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вариант ответа №2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Goh-Pa-Wun">
-                                <rect key="frame" x="25" y="301" width="364" height="50"/>
+                                <rect key="frame" x="25" y="271" width="364" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="L7q-Wn-aFV"/>
+                                    <constraint firstAttribute="height" constant="35" id="L7q-Wn-aFV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вариант ответа №3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4Y-fA-yNc">
-                                <rect key="frame" x="25" y="361" width="364" height="50"/>
+                                <rect key="frame" x="25" y="316" width="364" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="tv4-WK-GBj"/>
+                                    <constraint firstAttribute="height" constant="35" id="tv4-WK-GBj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вариант ответа №4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zXj-lN-GgZ">
-                                <rect key="frame" x="25" y="421" width="364" height="50"/>
+                                <rect key="frame" x="25" y="361" width="364" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="jVi-GB-Zgp"/>
+                                    <constraint firstAttribute="height" constant="35" id="jVi-GB-Zgp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YXI-8C-41G">
-                                <rect key="frame" x="25" y="481" width="364" height="51"/>
+                                <rect key="frame" x="25" y="406" width="364" height="36"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="jFW-LS-DWI"/>
+                                    <constraint firstAttribute="height" constant="35" id="jFW-LS-DWI"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Легкий"/>
@@ -329,6 +329,26 @@
                                     <action selector="AddQuestionButtonTap:" destination="2Co-gz-hUq" eventType="touchUpInside" id="hMw-FX-B5e"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Правильный ответ:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgc-tP-70n">
+                                <rect key="frame" x="25" y="466" width="364" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xFW-UR-EFH">
+                                <rect key="frame" x="25" y="497" width="364" height="36"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="dEV-Pp-IV1"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="№1"/>
+                                    <segment title="№2"/>
+                                    <segment title="№3"/>
+                                    <segment title="№4"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" systemColor="systemOrangeColor"/>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HZC-Wn-T4T"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -345,17 +365,23 @@
                             <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="zXj-lN-GgZ" secondAttribute="trailing" constant="25" id="IjX-6i-W0N"/>
                             <constraint firstItem="I5r-Xn-eXC" firstAttribute="top" secondItem="HZC-Wn-T4T" secondAttribute="top" constant="25" id="Mpb-6S-V2K"/>
                             <constraint firstItem="I5r-Xn-eXC" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="PE9-Co-YtL"/>
+                            <constraint firstItem="kgc-tP-70n" firstAttribute="top" secondItem="YXI-8C-41G" secondAttribute="bottom" constant="25" id="QnI-2n-bH2"/>
                             <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="lp0-r4-sOi" secondAttribute="trailing" constant="25" id="R4c-qF-eRL"/>
+                            <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="xFW-UR-EFH" secondAttribute="trailing" constant="25" id="RXo-cI-eVG"/>
                             <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="YXI-8C-41G" secondAttribute="trailing" constant="25" id="VlH-Bz-2R2"/>
                             <constraint firstItem="Goh-Pa-Wun" firstAttribute="top" secondItem="B3c-fk-QXC" secondAttribute="bottom" constant="10" id="We1-Bt-DrN"/>
                             <constraint firstItem="a4Y-fA-yNc" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="c0q-AL-dHl"/>
+                            <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="kgc-tP-70n" secondAttribute="trailing" constant="25" id="ca2-5k-hWQ"/>
                             <constraint firstItem="zXj-lN-GgZ" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="fqz-I0-J5j"/>
+                            <constraint firstItem="xFW-UR-EFH" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="fyQ-mm-YD4"/>
                             <constraint firstItem="a4Y-fA-yNc" firstAttribute="top" secondItem="Goh-Pa-Wun" secondAttribute="bottom" constant="10" id="gCY-UI-JVR"/>
+                            <constraint firstItem="kgc-tP-70n" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="ipK-V1-Si3"/>
                             <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="v2o-uB-9kA" secondAttribute="trailing" constant="25" id="n2Q-9a-esA"/>
                             <constraint firstItem="YXI-8C-41G" firstAttribute="top" secondItem="zXj-lN-GgZ" secondAttribute="bottom" constant="10" id="ofA-qd-Vsq"/>
                             <constraint firstItem="HZC-Wn-T4T" firstAttribute="bottom" secondItem="v2o-uB-9kA" secondAttribute="bottom" constant="10" id="s8n-JI-G01"/>
                             <constraint firstItem="B3c-fk-QXC" firstAttribute="top" secondItem="lp0-r4-sOi" secondAttribute="bottom" constant="10" id="sXl-PR-iSO"/>
                             <constraint firstItem="B3c-fk-QXC" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="vzF-LY-Dcw"/>
+                            <constraint firstItem="xFW-UR-EFH" firstAttribute="top" secondItem="kgc-tP-70n" secondAttribute="bottom" constant="10" id="yyi-BZ-aeL"/>
                             <constraint firstItem="v2o-uB-9kA" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="zWh-AQ-ztx"/>
                         </constraints>
                     </view>
@@ -367,6 +393,7 @@
                         <outlet property="answer2TextField" destination="Goh-Pa-Wun" id="KzL-UU-EFQ"/>
                         <outlet property="answer3TextField" destination="a4Y-fA-yNc" id="0CT-Ml-zSV"/>
                         <outlet property="answer4TextField" destination="zXj-lN-GgZ" id="jhZ-9g-Hgv"/>
+                        <outlet property="correctAnswerSegmentedControl" destination="xFW-UR-EFH" id="3Pm-3d-ZTN"/>
                         <outlet property="difficultySegmentedControl" destination="YXI-8C-41G" id="SGO-HF-jLW"/>
                     </connections>
                 </viewController>

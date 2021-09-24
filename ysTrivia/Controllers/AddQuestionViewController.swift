@@ -15,6 +15,7 @@ class AddQuestionViewController: UIViewController {
     @IBOutlet weak var answer3TextField: UITextField!
     @IBOutlet weak var answer4TextField: UITextField!
     @IBOutlet weak var difficultySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var correctAnswerSegmentedControl: UISegmentedControl!
     @IBOutlet weak var addQuestionButton: UIButton!
     
     // MARK: - Array of text fields.
@@ -34,6 +35,8 @@ class AddQuestionViewController: UIViewController {
         let allFilled = textFields.map{ $0?.text?.isEmpty ?? true }.filter{ $0 == true }.isEmpty
         
         if allFilled {
+            
+            print(difficultySegmentedControl.selectedSegmentIndex)
             
         } else {
             displayAlert(withAlertTitle: "⚠️ Важно! ⚠️", andMessage: "Пожалуйста, 🥺 заполните все поля!")
