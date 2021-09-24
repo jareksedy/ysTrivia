@@ -90,6 +90,9 @@
                                 <state key="normal" title="➕ Добавить вопрос ➕">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="2Co-gz-hUq" kind="show" id="WO0-Vo-PQk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -155,7 +158,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tKx-OU-Hnt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129" y="802"/>
+            <point key="canvasLocation" x="129" y="888"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="6Xe-2n-U2I">
@@ -243,7 +246,130 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBd-zR-S6X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="964" y="802"/>
+            <point key="canvasLocation" x="964" y="888"/>
+        </scene>
+        <!--Add Question View Controller-->
+        <scene sceneID="gBs-KA-KrJ">
+            <objects>
+                <viewController id="2Co-gz-hUq" customClass="AddQuestionViewController" customModule="ysTrivia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="odR-md-JBP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить вопрос" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5r-Xn-eXC">
+                                <rect key="frame" x="25" y="113" width="364" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите вопрос" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lp0-r4-sOi">
+                                <rect key="frame" x="25" y="181" width="364" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8ol-fe-3D6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вариант ответа №1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B3c-fk-QXC">
+                                <rect key="frame" x="25" y="241" width="364" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="TAl-Wn-gFE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вариант ответа №2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Goh-Pa-Wun">
+                                <rect key="frame" x="25" y="301" width="364" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="L7q-Wn-aFV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вариант ответа №3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4Y-fA-yNc">
+                                <rect key="frame" x="25" y="361" width="364" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tv4-WK-GBj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вариант ответа №4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zXj-lN-GgZ">
+                                <rect key="frame" x="25" y="421" width="364" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jVi-GB-Zgp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YXI-8C-41G">
+                                <rect key="frame" x="25" y="481" width="364" height="51"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jFW-LS-DWI"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Легкий"/>
+                                    <segment title="Средней сложности"/>
+                                    <segment title="Сложный"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" systemColor="systemOrangeColor"/>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2o-uB-9kA">
+                                <rect key="frame" x="25" y="802" width="364" height="50"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ngs-9m-wOZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="Добавить">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HZC-Wn-T4T"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Goh-Pa-Wun" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="1NJ-fB-dsJ"/>
+                            <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="Goh-Pa-Wun" secondAttribute="trailing" constant="25" id="3Ix-Q4-eEm"/>
+                            <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="a4Y-fA-yNc" secondAttribute="trailing" constant="25" id="498-l9-Pd7"/>
+                            <constraint firstItem="lp0-r4-sOi" firstAttribute="top" secondItem="I5r-Xn-eXC" secondAttribute="bottom" constant="25" id="4Fa-LK-ff4"/>
+                            <constraint firstItem="YXI-8C-41G" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="6wd-Cq-l4f"/>
+                            <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="B3c-fk-QXC" secondAttribute="trailing" constant="25" id="7Ds-Af-BFH"/>
+                            <constraint firstItem="lp0-r4-sOi" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="7ah-j9-GQd"/>
+                            <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="I5r-Xn-eXC" secondAttribute="trailing" constant="25" id="GWe-y8-hcW"/>
+                            <constraint firstItem="zXj-lN-GgZ" firstAttribute="top" secondItem="a4Y-fA-yNc" secondAttribute="bottom" constant="10" id="HhG-ih-D3o"/>
+                            <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="zXj-lN-GgZ" secondAttribute="trailing" constant="25" id="IjX-6i-W0N"/>
+                            <constraint firstItem="I5r-Xn-eXC" firstAttribute="top" secondItem="HZC-Wn-T4T" secondAttribute="top" constant="25" id="Mpb-6S-V2K"/>
+                            <constraint firstItem="I5r-Xn-eXC" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="PE9-Co-YtL"/>
+                            <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="lp0-r4-sOi" secondAttribute="trailing" constant="25" id="R4c-qF-eRL"/>
+                            <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="YXI-8C-41G" secondAttribute="trailing" constant="25" id="VlH-Bz-2R2"/>
+                            <constraint firstItem="Goh-Pa-Wun" firstAttribute="top" secondItem="B3c-fk-QXC" secondAttribute="bottom" constant="10" id="We1-Bt-DrN"/>
+                            <constraint firstItem="a4Y-fA-yNc" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="c0q-AL-dHl"/>
+                            <constraint firstItem="zXj-lN-GgZ" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="fqz-I0-J5j"/>
+                            <constraint firstItem="a4Y-fA-yNc" firstAttribute="top" secondItem="Goh-Pa-Wun" secondAttribute="bottom" constant="10" id="gCY-UI-JVR"/>
+                            <constraint firstItem="HZC-Wn-T4T" firstAttribute="trailing" secondItem="v2o-uB-9kA" secondAttribute="trailing" constant="25" id="n2Q-9a-esA"/>
+                            <constraint firstItem="YXI-8C-41G" firstAttribute="top" secondItem="zXj-lN-GgZ" secondAttribute="bottom" constant="10" id="ofA-qd-Vsq"/>
+                            <constraint firstItem="HZC-Wn-T4T" firstAttribute="bottom" secondItem="v2o-uB-9kA" secondAttribute="bottom" constant="10" id="s8n-JI-G01"/>
+                            <constraint firstItem="B3c-fk-QXC" firstAttribute="top" secondItem="lp0-r4-sOi" secondAttribute="bottom" constant="10" id="sXl-PR-iSO"/>
+                            <constraint firstItem="B3c-fk-QXC" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="vzF-LY-Dcw"/>
+                            <constraint firstItem="v2o-uB-9kA" firstAttribute="leading" secondItem="HZC-Wn-T4T" secondAttribute="leading" constant="25" id="zWh-AQ-ztx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5Hy-PV-AhR"/>
+                    <connections>
+                        <outlet property="addQuestionButton" destination="v2o-uB-9kA" id="sXQ-fu-msJ"/>
+                        <outlet property="addQuestionTextField" destination="lp0-r4-sOi" id="7zV-Wl-LW3"/>
+                        <outlet property="answer1TextField" destination="B3c-fk-QXC" id="XLK-oF-lPZ"/>
+                        <outlet property="answer2TextField" destination="Goh-Pa-Wun" id="KzL-UU-EFQ"/>
+                        <outlet property="answer3TextField" destination="a4Y-fA-yNc" id="0CT-Ml-zSV"/>
+                        <outlet property="answer4TextField" destination="zXj-lN-GgZ" id="jhZ-9g-Hgv"/>
+                        <outlet property="difficultySegmentedControl" destination="YXI-8C-41G" id="SGO-HF-jLW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N5E-FW-8He" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1802.8985507246377" y="887.94642857142856"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="ryw-KD-HlP">
@@ -503,6 +629,9 @@
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

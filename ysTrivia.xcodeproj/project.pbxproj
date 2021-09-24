@@ -16,6 +16,7 @@
 		CA621FA426F6705A006EAE77 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA621FA326F6705A006EAE77 /* Extensions.swift */; };
 		CA6987B726FCDF3B00833B54 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6987B626FCDF3B00833B54 /* UserSettings.swift */; };
 		CA6987B926FCDFCB00833B54 /* UserSettingsCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6987B826FCDFCB00833B54 /* UserSettingsCaretaker.swift */; };
+		CA8CFB5526FDBCF4004C5759 /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CFB5426FDBCF4004C5759 /* AddQuestionViewController.swift */; };
 		CA9B7FF726F75FED00EE036C /* GameStatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9B7FF626F75FED00EE036C /* GameStatsTableViewController.swift */; };
 		CA9B7FF926F78EA300EE036C /* StatsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9B7FF826F78EA300EE036C /* StatsService.swift */; };
 		CAAB87E726F4F5FD0013461A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAB87E626F4F5FD0013461A /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 		CA621FA326F6705A006EAE77 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CA6987B626FCDF3B00833B54 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		CA6987B826FCDFCB00833B54 /* UserSettingsCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsCaretaker.swift; sourceTree = "<group>"; };
+		CA8CFB5426FDBCF4004C5759 /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
 		CA9B7FF626F75FED00EE036C /* GameStatsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatsTableViewController.swift; sourceTree = "<group>"; };
 		CA9B7FF826F78EA300EE036C /* StatsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsService.swift; sourceTree = "<group>"; };
 		CAAB87E326F4F5FD0013461A /* ysTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ysTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				CAC5617926FAE6CB00CA0CEF /* SettingsViewController.swift */,
+				CA8CFB5426FDBCF4004C5759 /* AddQuestionViewController.swift */,
 				CA9B7FF626F75FED00EE036C /* GameStatsTableViewController.swift */,
 				CA41CBCE26F5F56D00D13673 /* GameViewController.swift */,
 				CA41CBD126F5F5EC00D13673 /* InitialViewController.swift */,
@@ -270,6 +273,7 @@
 				CA4BB72626F5907D007A0695 /* QuestionProvider.swift in Sources */,
 				CAC5617A26FAE6CB00CA0CEF /* SettingsViewController.swift in Sources */,
 				CA41CBCF26F5F56D00D13673 /* GameViewController.swift in Sources */,
+				CA8CFB5526FDBCF4004C5759 /* AddQuestionViewController.swift in Sources */,
 				CAE6BC7126F7C27600603FF8 /* GamePersisted.swift in Sources */,
 				CA4BB72426F58B20007A0695 /* GameSession.swift in Sources */,
 				CAAB87E926F4F5FD0013461A /* SceneDelegate.swift in Sources */,
