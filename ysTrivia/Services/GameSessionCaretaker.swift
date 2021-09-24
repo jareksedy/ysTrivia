@@ -10,7 +10,7 @@ import RealmSwift
 
 class GameSessionCaretaker {
     
-    lazy var configuration = Realm.Configuration(objectTypes: objectTypes)
+    lazy var configuration = Realm.Configuration(deleteRealmIfMigrationNeeded: true, objectTypes: objectTypes)
     lazy var realm = try! Realm(configuration: configuration)
     
     private let key = "gameinprogress"
@@ -45,6 +45,7 @@ class GameSessionCaretaker {
     
     func load() -> GamePersisted? {
         
+        //print(realm.configuration.fileURL!)
         return realm.objects(GamePersisted.self).first
     }
 }

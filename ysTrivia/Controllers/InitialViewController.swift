@@ -15,13 +15,20 @@ class InitialViewController: UIViewController {
     let game = Game.shared
     let statsService = StatsService()
     let gameSessionCaretaker = GameSessionCaretaker()
+    let userSettingsCaretaker = UserSettingsCaretaker()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         navigationController?.isNavigationBarHidden = true
         resultLabel.font = UIFont.monospacedSystemFont(ofSize: 10.0, weight: UIFont.Weight.regular)
+        
+        userSettingsCaretaker.load()
+        
+        let questionProvider = QuestionProvider(strategy: UserQuestionsStrategy())
+        if questionProvider.fetchRandom(for: 1) == nil {
+            game.userQuestionMode = false
+        }
         
         if game.gameSession == nil { resultLabel.text = "" }
         
@@ -31,10 +38,9 @@ class InitialViewController: UIViewController {
         
         if let _ = gameSessionCaretaker.load() {
             
-            self.displayYesNoAlert(withAlertTitle: "🚩 Опаньки! 🚩", andMessage: "Найдена незавершенная игра. Возобновить?") { _ in
-                
+            self.displayYesNoAlert(withAlertTitle: "🚩 Опаньки! 🚩", andMessage: "Найдена незавершенная игра. Возобновить?", yesAction: { _ in
                 self.performSegue(withIdentifier: "toGameVC", sender: self)
-            }
+            }, noAction: { _ in })
         }
         
         versionLabel.text = "Верс. \(game.version)"

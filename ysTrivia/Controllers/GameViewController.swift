@@ -11,6 +11,8 @@ protocol GameViewControllerDelegate: AnyObject {
     func didEndGame(withResult result: GameSession)
 }
 
+class Observer {}
+
 class GameViewController: UIViewController {
     
     // MARK: - Aborted game.
@@ -36,6 +38,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var lifelineAskAudienceButton: UIButton!
     @IBOutlet weak var lifelinePhoneButton: UIButton!
     
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var hellmodeLabel: UILabel!
+    
     @IBOutlet weak var endGameButton: UIButton!
     
     // MARK: - Array of answer buttons.
@@ -46,8 +51,19 @@ class GameViewController: UIViewController {
     
     let game = Game.shared
     let gameSession = GameSession()
-    let questionProvider = QuestionProvider()
+    let questionProvider = QuestionProvider(strategy: Game.shared.hellMode ? HellmodeStrategy() : NormalStrategy())
     let gameSessionCaretaker = GameSessionCaretaker()
+    let observer = Observer()
+    
+    // MARK: - Properties.
+    
+    lazy var difficultyIndex: Observable<Int> = Observable(gameSession.currentQuestionNo)
+    
+    // MARK: - Timer.
+    
+    var timer: Timer?
+    var timerRunCount = 15
+    var timerPaused = false
     
     // MARK: - Messages.
     
@@ -60,14 +76,19 @@ class GameViewController: UIViewController {
     let endGameTitle = "🤔 Завершить игру? 🤔"
     lazy var endGameMessage = """
         Вы уверены что хотите завершить игру
-        и забрать ваш выигрыш
-        \(gameSession.earnedMoney.formatted) ₽?
-        Вы хорошо подумали?
+        и \( gameSession.earnedMoney > 0 ? "забрать ваш выигрыш " + gameSession.earnedMoney.formatted + " ₽?" : "уйти ни с чем?")
         """
     
     let gameOverTitle = "👾 Пипец! 👾"
     lazy var gameOverMessage = """
         Сожалею, ответ неверный!
+        Ваш выигрыш \(gameSession.earnedMoneyGuaranteed > 0 ? "в размере несгораемого остатка равен \("\n" + gameSession.earnedMoneyGuaranteed.formatted) ₽." : "равен нулю.")
+        Игра окончена.
+        """
+    
+    let gameOverOnTimeoutTitle = "⏳ Увы! ⏳"
+    lazy var gameOverOnTimeoutMessage = """
+        К сожалению, время, отведенное на ответ, вышло!
         Ваш выигрыш \(gameSession.earnedMoneyGuaranteed > 0 ? "в размере несгораемого остатка равен \("\n" + gameSession.earnedMoneyGuaranteed.formatted) ₽." : "равен нулю.")
         Игра окончена.
         """
@@ -80,6 +101,56 @@ class GameViewController: UIViewController {
         """
     
     // MARK: - Private methods.
+    
+    private func pauseTimer() {
+        
+        guard game.clockMode else { return }
+        guard timer != nil else { return }
+        timerPaused = true
+        
+    }
+    
+    private func resumeTimer() {
+        
+        guard game.clockMode else { return }
+        guard timer != nil else { return }
+        timerPaused = false
+    }
+    
+    private func stopTimer() {
+        
+        guard game.clockMode else { return }
+        guard timer != nil else { return }
+        timer!.invalidate()
+        timer = nil
+    }
+    
+    private func startTimer() {
+        
+        guard game.clockMode else { return }
+        
+        stopTimer()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            
+            if self.timerPaused { return }
+            
+            self.timerLabel.textColor = UIColor.systemPurple
+            self.timerLabel.text = "00:" + String(format: "%02d", self.timerRunCount)
+            self.timerRunCount -= 1
+            
+            if self.timerRunCount < 5 {
+                self.timerLabel.textColor = .incorrect
+            }
+
+            if self.timerRunCount < 0 {
+                self.timerRunCount = 0
+                self.timerLabel.text = "00:" + String(format: "%02d", self.timerRunCount)
+                timer.invalidate()
+                self.gameOverOnTimeout()
+            }
+        }
+    }
     
     private func endGame(_ session: GameSession) {
         
@@ -116,14 +187,21 @@ class GameViewController: UIViewController {
     
     private func displayQuestion() {
         
-        let difficultyIndex = gameSession.currentQuestionNo
+        difficultyIndex.value = gameSession.currentQuestionNo
+        
+        if game.clockMode {
+            timerLabel.isHidden = false
+            timerRunCount = gameSession.timeoutValue
+            startTimer()
+        } else {
+            timerLabel.isHidden = true
+        }
         
         updateButtons()
         
-        guard let question = questionProvider.fetchRandom(for: difficultyIndex) else { return }
-        guard let questionValue = game.payout[difficultyIndex] else { return }
+        guard let question = questionProvider.fetchRandom(for: difficultyIndex.value) else { return }
+        guard let questionValue = game.payout[difficultyIndex.value] else { return }
         
-        currentQuestionNoLabel.text = "ВОПРОС [ \(difficultyIndex) / \(game.questionsTotal) ]"
         currentQuestionValueLabel.text = "\(questionValue.formatted) ₽"
         
         currentQuestionLabel.text = question.text
@@ -191,15 +269,12 @@ class GameViewController: UIViewController {
             lifelineAskAudienceButton.alpha = 1.0
         }
         
-        if gameSession.earnedMoney == 0 {
-            
-            endGameButton.setTitle("Забрать деньги и завершить игру.", for: .normal)
-            endGameButton.isEnabled = false
-            endGameButton.alpha = 0.75
-            
+        if difficultyIndex.value == 1 {
+            endGameButton.setTitle("Завершить игру", for: .normal)
+            endGameButton.isEnabled = true
+            endGameButton.alpha = 1.0
         } else {
-            
-            endGameButton.setTitle("Забрать \(gameSession.earnedMoney.formatted) ₽ и завершить игру.", for: .normal)
+            endGameButton.setTitle("Забрать \(gameSession.earnedMoney.formatted) ₽ и завершить игру", for: .normal)
             endGameButton.isEnabled = true
             endGameButton.alpha = 1.0
         }
@@ -208,6 +283,8 @@ class GameViewController: UIViewController {
     // MARK: - Actions.
     
     @objc func answerButtonAction(_ sender: UIButton!) {
+        
+        stopTimer()
         
         let answerIndex = sender.tag
         
@@ -220,7 +297,7 @@ class GameViewController: UIViewController {
                 // ОТВЕТ ВЕРНЫЙ. ИДЕМ ДАЛЬШЕ.
                 answerButtons[answerIndex]?.backgroundColor = .correct
                 delay {
-                    if gameSession.currentQuestionNo < game.questionsTotal {
+                    if difficultyIndex.value < game.questionsTotal {
                         nextQuestion()
                     } else {
                         // ИГРА ОКОНЧЕНА. ИГРОК ВЫИГРАЛ МАКСИМАЛЬНУЮ СУММУ.
@@ -258,6 +335,8 @@ class GameViewController: UIViewController {
         guard let firstIndex = gameSession.currentQuestion?.correctIndex else { return }
         let secondIndex = Int.random(in: 0...3, excluding: firstIndex)
         
+        pauseTimer()
+        
         var audienceSuggests = 0
         
         if gameSession.isLifelineFiftyUsed { audienceSuggests = firstIndex } else {
@@ -272,7 +351,9 @@ class GameViewController: UIViewController {
         
         delay { [self] in
             displayAlert(withAlertTitle: audienceTitle,
-                         andMessage: audienceMessage + "\(answer).")
+                         andMessage: audienceMessage + "\(answer).") { _ in
+                resumeTimer()
+            }
         }
     }
     
@@ -280,6 +361,8 @@ class GameViewController: UIViewController {
         
         guard let firstIndex = gameSession.currentQuestion?.correctIndex else { return }
         let secondIndex = Int.random(in: 0...3, excluding: firstIndex)
+        
+        pauseTimer()
         
         var friendSuggests = 0
         
@@ -296,18 +379,23 @@ class GameViewController: UIViewController {
         
         delay { [self] in
             displayAlert(withAlertTitle: friendTitle,
-                         andMessage: friendMessage + "\(answer). \(answerText).")
+                         andMessage: friendMessage + "\(answer). \(answerText).") { _ in
+                resumeTimer()
+            }
         }
     }
     
     @IBAction func endGameAction(_ sender: Any) {
         
+        pauseTimer()
+        
         displayYesNoAlert(withAlertTitle: endGameTitle,
-                          andMessage: endGameMessage) { _ in
-            
-            self.gameSession.gameStatus = .abortedByUser
-            self.endGame(self.gameSession)
-        }
+                          andMessage: endGameMessage, yesAction: { _ in
+                            self.gameSession.gameStatus = .abortedByUser
+                            self.endGame(self.gameSession)
+                          }, noAction: { _ in
+                            self.resumeTimer()
+                          })
     }
     
     // MARK: - Game lifecycle methods.
@@ -315,6 +403,8 @@ class GameViewController: UIViewController {
     func nextQuestion() {
         
         gameSession.currentQuestionNo += 1
+        difficultyIndex.value = gameSession.currentQuestionNo
+        
         displayQuestion()
         gameSessionCaretaker.save(gameSession)
     }
@@ -334,6 +424,20 @@ class GameViewController: UIViewController {
         }
     }
     
+    func gameOverOnTimeout() {
+        
+        answerButtons[gameSession.currentQuestion!.correctIndex]?.backgroundColor = .correct
+        answerButtons[gameSession.currentQuestion!.correctIndex]?.alpha = 1.0
+        
+        gameSession.gameStatus = .lostOnTimeout
+        
+        delay { [self] in
+            displayAlert(withAlertTitle: gameOverOnTimeoutTitle, andMessage: gameOverOnTimeoutMessage) { _ in
+                self.endGame(self.gameSession)
+            }
+        }
+    }
+    
     func win(_ answerIndex: Int) {
         
         answerButtons[answerIndex]?.backgroundColor = .correct
@@ -348,6 +452,15 @@ class GameViewController: UIViewController {
         }
     }
     
+    // MARK: - Observed.
+    
+    private func subscribe() {
+        
+        difficultyIndex.addObserver(observer, options: [.initial, .new, .old]) { dI, change in
+            self.currentQuestionNoLabel.text = "Вопрос № \(dI) / \(self.game.questionsTotal), \((dI - 1) * 100 / self.game.questionsTotal)% правильных ответов.".uppercased()
+        }
+    }
+    
     // MARK: - View controller methods.
     
     override func viewDidLoad() {
@@ -355,12 +468,14 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         
-        if abortedGame != nil {
-            restoreGameSession()
-        } else {
-            resetGameSession()
-        }
+        if game.hellMode { hellmodeLabel.isHidden = false } else { hellmodeLabel.isHidden = true }
         
+        currentQuestionValueLabel.font = UIFont.monospacedSystemFont(ofSize: 24.0, weight: UIFont.Weight.bold)
+        timerLabel.font = UIFont.monospacedSystemFont(ofSize: 24.0, weight: UIFont.Weight.bold)
+        
+        subscribe()
+        
+        abortedGame != nil ? restoreGameSession() : resetGameSession()
         addButtonActions()
         displayQuestion()
     }

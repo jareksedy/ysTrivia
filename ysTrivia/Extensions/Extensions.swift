@@ -67,6 +67,16 @@ extension GameSession {
         default: return 0
         }
     }
+    
+    var timeoutValue: Int {
+        
+        switch self.currentQuestionNo {
+        case 0...5: return 15
+        case 6...10: return 30
+        case 11...15: return 45
+        default: return 15
+        }
+    }
 }
 
 // MARK: - Colors.
@@ -91,11 +101,11 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func displayYesNoAlert(withAlertTitle alertTitle: String, andMessage message: String, _ completion: ((UIAlertAction)->Void)? = nil) {
+    func displayYesNoAlert(withAlertTitle alertTitle: String, andMessage message: String, yesAction: @escaping ((UIAlertAction)->Void), noAction: @escaping ((UIAlertAction)->Void)) {
         
         let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "Да", style: .default, handler: completion)
-        let noAction = UIAlertAction(title: "Нет", style: .cancel, handler: nil)
+        let yesAction = UIAlertAction(title: "Да", style: .default, handler: yesAction)
+        let noAction = UIAlertAction(title: "Нет", style: .cancel, handler: noAction)
         alert.addAction(yesAction)
         alert.addAction(noAction)
         self.present(alert, animated: true, completion: nil)

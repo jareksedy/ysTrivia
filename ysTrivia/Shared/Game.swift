@@ -12,7 +12,7 @@ final class Game {
     static let shared = Game()
     private init() {}
     
-    let version = "1.0.0"
+    let version = "2.0.0"
     
     let payout = [
         1: 500,
@@ -44,52 +44,52 @@ final class Game {
     
     var gameSession: GameSession?
     
+    // MARK: - Default settings.
+    
+    var clockMode = true
+    var hellMode = false
+    var userQuestionMode = false
+    
     var current: Int {
-        
         var current = self.gameSession?.currentQuestionNo ?? 0
-        
-        if self.gameSession?.gameStatus == .lost && current > 0 {
+        let status = self.gameSession?.gameStatus ?? .lost
+        if (status == .lost || status == .abortedByUser || status == .lostOnTimeout ) && current > 0 {
             current -= 1
         }
-        
         return current
     }
     
     var percentage: Int {
-        
         return current * 100 / questionsTotal
     }
     
     var currentQuestion: String {
-        
         return self.gameSession?.currentQuestion?.text ?? ""
     }
     
     var correctAnswer: String {
-        
         return self.gameSession?.currentQuestion?.answers[self.gameSession?.currentQuestion?.correctIndex ?? 0].text ?? ""
     }
     
     var gameStatus: String {
-        
         guard let status = self.gameSession?.gameStatus else { return "---" }
         
         switch status {
         case .unInitialized: return "не инициализирована."
-        case .lost: return "проиграна."
-        case .won: return "выиграна."
-        case .abortedByUser: return "прервана пользователем."
+        case .lost: return "👾 проиграна."
+        case .won: return "🍾 выиграна."
+        case .abortedByUser: return "прервана 🔌 пользователем."
         case .inProgress: return "в процессе."
+        case .lostOnTimeout: return "проиграна ⏳ по таймеру."
         default: return "не инициализирована."
         }
     }
     
     var moneyWon: Int {
-        
         guard let status = self.gameSession?.gameStatus else { return 0 }
         
         switch status {
-        case .lost: return self.gameSession!.earnedMoneyGuaranteed
+        case .lost, .lostOnTimeout: return self.gameSession!.earnedMoneyGuaranteed
         case .abortedByUser: return self.gameSession!.earnedMoney
         case .won: return payout[questionsTotal] ?? 3_000_000
         case .unInitialized: return 0
@@ -98,4 +98,4 @@ final class Game {
     }
 }
 
-let objectTypes = [GameStats.self, GamePersisted.self]
+let objectTypes = [GameStats.self, GamePersisted.self, UserSettings.self, UserQuestion.self]
