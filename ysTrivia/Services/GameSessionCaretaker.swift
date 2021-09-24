@@ -45,6 +45,7 @@ class GameSessionCaretaker {
     
     func load() -> GamePersisted? {
         
+        //print(realm.configuration.fileURL!)
         return realm.objects(GamePersisted.self).first
     }
 }

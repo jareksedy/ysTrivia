@@ -95,4 +95,4 @@ final class Game {
     }
 }
 
-let objectTypes = [GameStats.self, GamePersisted.self, UserSettings.self]
+let objectTypes = [GameStats.self, GamePersisted.self, UserSettings.self, UserQuestion.self]

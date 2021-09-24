@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CA11D22026FE0B0E00FA731C /* UserQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11D21F26FE0B0E00FA731C /* UserQuestion.swift */; };
+		CA11D22226FE0BF100FA731C /* UserQuestionCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11D22126FE0BF100FA731C /* UserQuestionCaretaker.swift */; };
 		CA41CBCB26F5F1AE00D13673 /* triviaDB.realm in Resources */ = {isa = PBXBuildFile; fileRef = CA41CBCA26F5F1AE00D13673 /* triviaDB.realm */; };
 		CA41CBCF26F5F56D00D13673 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA41CBCE26F5F56D00D13673 /* GameViewController.swift */; };
 		CA41CBD226F5F5EC00D13673 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA41CBD126F5F5EC00D13673 /* InitialViewController.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		CA11D21F26FE0B0E00FA731C /* UserQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestion.swift; sourceTree = "<group>"; };
+		CA11D22126FE0BF100FA731C /* UserQuestionCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestionCaretaker.swift; sourceTree = "<group>"; };
 		CA41CBCA26F5F1AE00D13673 /* triviaDB.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = triviaDB.realm; sourceTree = "<group>"; };
 		CA41CBCE26F5F56D00D13673 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		CA41CBD126F5F5EC00D13673 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				CA4BB72526F5907D007A0695 /* QuestionProvider.swift */,
+				CA11D22126FE0BF100FA731C /* UserQuestionCaretaker.swift */,
 				CAE6BC6E26F7B9E300603FF8 /* GameSessionCaretaker.swift */,
 				CA6987B826FCDFCB00833B54 /* UserSettingsCaretaker.swift */,
 				CA9B7FF826F78EA300EE036C /* StatsService.swift */,
@@ -269,6 +272,7 @@
 			files = (
 				CA4BB72126F58529007A0695 /* Game.swift in Sources */,
 				CAC5617726FACBBB00CA0CEF /* Observable.swift in Sources */,
+				CA11D22226FE0BF100FA731C /* UserQuestionCaretaker.swift in Sources */,
 				CA621FA426F6705A006EAE77 /* Extensions.swift in Sources */,
 				CAAB880126F4FCCB0013461A /* Question.swift in Sources */,
 				CA11D22026FE0B0E00FA731C /* UserQuestion.swift in Sources */,

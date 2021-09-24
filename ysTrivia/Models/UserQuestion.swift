@@ -8,15 +8,15 @@
 import Foundation
 import RealmSwift
 
-class UserAnswer: Object {
-    
-    @Persisted var text: String
-    @Persisted var correct: Bool
-}
-
 class UserQuestion: Object {
     
     @Persisted var difficulty: Int
     @Persisted var text: String
-    @Persisted var answers: List<UserAnswer>
+    @Persisted var answer1: String
+    @Persisted var answer2: String
+    @Persisted var answer3: String
+    @Persisted var answer4: String
+    
+    @Persisted var correctIndex: Int
+
 }
