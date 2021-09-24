@@ -205,6 +205,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пользовательские вопросы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Muw-MU-63t">
+                                <rect key="frame" x="25" y="372" width="305" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hellmode hint" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76E-xd-yxC">
                                 <rect key="frame" x="24" y="325" width="365" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -217,10 +223,10 @@
                                     <action selector="userQuestionSwitchChanged:" destination="lMR-Lo-jmL" eventType="valueChanged" id="PKV-QP-jd8"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваша база вопросов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Muw-MU-63t">
-                                <rect key="frame" x="25" y="372" width="305" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usermode hint" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGe-Jg-vMX">
+                                <rect key="frame" x="25" y="423" width="364" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -232,6 +238,7 @@
                             <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="Yar-tH-iEp" secondAttribute="trailing" constant="25" id="Bqu-Jb-Cu0"/>
                             <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="1p3-gy-Pn7" secondAttribute="trailing" constant="25" id="FZE-pQ-d3t"/>
                             <constraint firstItem="Yar-tH-iEp" firstAttribute="leading" secondItem="Muw-MU-63t" secondAttribute="trailing" constant="10" id="Hnc-RL-GzC"/>
+                            <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="LGe-Jg-vMX" secondAttribute="trailing" constant="25" id="M61-w5-1QO"/>
                             <constraint firstItem="5UO-bZ-B5Z" firstAttribute="top" secondItem="WXY-ZK-Vvm" secondAttribute="bottom" constant="25" id="MFK-al-gGL"/>
                             <constraint firstItem="ozu-Uw-Fj2" firstAttribute="top" secondItem="7v6-rg-IoA" secondAttribute="bottom" constant="25" id="OMe-fb-vbq"/>
                             <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="WXY-ZK-Vvm" secondAttribute="trailing" constant="25" id="OOl-Zr-VBf"/>
@@ -245,10 +252,12 @@
                             <constraint firstItem="7v6-rg-IoA" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="25" id="flZ-02-wDw"/>
                             <constraint firstItem="WXY-ZK-Vvm" firstAttribute="top" secondItem="BIk-br-g9o" secondAttribute="top" constant="25" id="h1M-3r-aLj"/>
                             <constraint firstItem="1p3-gy-Pn7" firstAttribute="top" secondItem="ozu-Uw-Fj2" secondAttribute="bottom" constant="25" id="hlP-BX-qjE"/>
+                            <constraint firstItem="LGe-Jg-vMX" firstAttribute="top" secondItem="Yar-tH-iEp" secondAttribute="bottom" constant="25" id="hzH-tB-8ZN"/>
                             <constraint firstItem="Z3b-Py-Ohv" firstAttribute="top" secondItem="ozu-Uw-Fj2" secondAttribute="bottom" constant="30" id="nuT-tx-3Fu"/>
                             <constraint firstItem="Z3b-Py-Ohv" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="25" id="oiE-Hm-QTW"/>
                             <constraint firstItem="5UO-bZ-B5Z" firstAttribute="leading" secondItem="7v6-rg-IoA" secondAttribute="trailing" constant="25" id="swS-rD-9m1"/>
                             <constraint firstItem="BIk-br-g9o" firstAttribute="trailing" secondItem="5UO-bZ-B5Z" secondAttribute="trailing" constant="25" id="u5m-jk-gov"/>
+                            <constraint firstItem="LGe-Jg-vMX" firstAttribute="leading" secondItem="BIk-br-g9o" secondAttribute="leading" constant="25" id="x34-Rv-7Vf"/>
                             <constraint firstItem="WXY-ZK-Vvm" firstAttribute="leading" secondItem="qhl-qZ-TKs" secondAttribute="leading" constant="25" id="xKP-pK-bLw"/>
                             <constraint firstItem="Muw-MU-63t" firstAttribute="top" secondItem="76E-xd-yxC" secondAttribute="bottom" constant="30" id="xom-YD-bb5"/>
                         </constraints>
@@ -260,6 +269,7 @@
                         <outlet property="switchHellmode" destination="1p3-gy-Pn7" id="Br0-g1-7FK"/>
                         <outlet property="switchTimer" destination="5UO-bZ-B5Z" id="Gds-PN-fpY"/>
                         <outlet property="switchUserQuestionMode" destination="Yar-tH-iEp" id="UIb-YZ-Fhx"/>
+                        <outlet property="usermodeHintLabel" destination="LGe-Jg-vMX" id="9DY-NO-gkd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBd-zR-S6X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

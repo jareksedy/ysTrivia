@@ -25,6 +25,11 @@ class InitialViewController: UIViewController {
         
         userSettingsCaretaker.load()
         
+        let questionProvider = QuestionProvider(strategy: UserQuestionsStrategy())
+        if questionProvider.fetchRandom(for: 1) == nil {
+            game.userQuestionMode = false
+        }
+        
         if game.gameSession == nil { resultLabel.text = "" }
         
         if let lastStats = statsService.fetchLast() {
